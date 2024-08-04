@@ -79,3 +79,41 @@ function handleButtonClick(url) {
         alert('Error, check the console')
    });
 }
+
+let currentView = 'all';
+
+function updateView() {
+    if (currentView === 'checked') {
+        showChecked();
+    } else if (currentView === 'unchecked') {
+        showUnchecked();
+    } else {
+        showAll();
+    }
+}
+
+function showAll() {
+    currentView = 'all';
+    const containers = document.querySelectorAll('.joker-container');
+    containers.forEach(container => {
+        container.style.display = 'block';
+   });
+}
+
+function showChecked() {
+    currentView = 'checked';
+    const containers = document.querySelectorAll('.joker-container');
+    containers.forEach(container => {
+        const checkbox = container.querySelector('input[type="checkbox"]');
+        container.style.display = checkbox.checked ? 'block' : 'none';
+    });
+}
+
+function showUnchecked() {
+    currentView = 'unchecked';
+    const containers = document.querySelectorAll('.joker-container');
+    containers.forEach(container => {
+    const checkbox = container.querySelector('input[type="checkbox"]');
+    container.style.display = !checkbox.checked ? 'block' : 'none';
+    });
+}
