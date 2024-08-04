@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"> </script>
+    <title>Gold Stake Stickers</title>
+</head>
+
+<body>
+    <h1 align="center">Completionist++</h1>
+    <button onclick="handleButtonClick('/add_all_gold_stickers')">Add All Stickers</button>
+    <button onclick="handleButtonClick('/remove_all_gold_stickers')">Remove All Stickers</button>
+    <div class="progress-container">
+        <p id="stats">{{ sticker_count }}/150 ({{ sticker_percentage }}%)</p>
+        <progress id="progress" value="{{ sticker_percentage }}" max="100"></progress>
+    </div>
+    <div class="joker-gallery">
+        {% for joker in jokers %}
+            <div class="joker-container">
+                <input type="checkbox" id="{{ joker.name }}" name="{{ joker.name }}" {% if joker.status == 'gold sticker' %} checked {% endif %}
+     onclick="checkboxClicked(this)">
+                <label for="{{ joker.name }}">{{ joker.name }}</label><br>
+                <img src="{{ url_for('static', filename='jokers/' + joker.name) }}.webp" alt="{{ joker.name }}" class="joker-image">
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
