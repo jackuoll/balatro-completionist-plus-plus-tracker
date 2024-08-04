@@ -132,28 +132,13 @@ def get_jokers_by_status(status: str):
     return jokers
 
 
-def remove_gold_stickers_from_all_jokers():
+def change_all_jokers_status(status: str):
     conn = sqlite3.connect('database.sqlite')
     cursor = conn.cursor()
 
-    query = """
+    query = f"""
         UPDATE jokers 
-        SET status = 'no gold sticker'
-    """
-
-    cursor.execute(query)
-
-    conn.commit()
-    conn.close()
-
-
-def add_gold_stickers_to_all_jokers():
-    conn = sqlite3.connect('database.sqlite')
-    cursor = conn.cursor()
-
-    query = """
-        UPDATE jokers 
-        SET status = 'gold sticker'
+        SET status = '{status}'
     """
 
     cursor.execute(query)
