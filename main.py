@@ -78,4 +78,4 @@ if __name__ == '__main__':
         logger.info('DB is empty, filling up')
         init_jokers()
 
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
