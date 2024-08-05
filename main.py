@@ -18,15 +18,8 @@ logger.info("Loguru started.")
 def index():
     jokers = get_all_jokers()
 
-    gold_sticker_count = sum(1 for joker in jokers if joker['status'] == 'gold sticker')
-
-    rounded_percentage = round(((gold_sticker_count * 100) / 150), 2)
-    rounded_percentage_formatted = f"{rounded_percentage:.2f}"
-
     return render_template('index.html',
-                           jokers=jokers,
-                           sticker_count=gold_sticker_count,
-                           sticker_percentage=rounded_percentage_formatted)
+                           jokers=jokers)
 
 
 @app.route('/change_joker_status', methods=['POST'])

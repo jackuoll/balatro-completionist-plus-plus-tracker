@@ -2,6 +2,7 @@ let currentView = 'all';
 let currentActiveButton = null;
 
 document.addEventListener('DOMContentLoaded', setDefaultView);
+document.addEventListener('DOMContentLoaded', updateStats)
 
 function checkboxClicked(checkbox) {
     const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
@@ -24,7 +25,7 @@ function checkboxClicked(checkbox) {
     })
     .then(data => {
         console.log('Success:', data);
-        changeJokerStats(checkbox.checked);
+        updateStats();
         updateView();
     })
     .catch((error) => {
@@ -33,34 +34,20 @@ function checkboxClicked(checkbox) {
     });
 }
 
-function changeJokerStats(isChecked) {
+function updateStats() {
+    const totalJokers = 150;
+
+    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
+    const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+    const percentage = ((checkedCount / totalJokers) * 100).toFixed(2);
+
     const statsElement = document.getElementById("stats");
     const progressElement = document.getElementById('progress');
 
-    let statsStr = statsElement.textContent;
+    statsElement.textContent = `${checkedCount}/${totalJokers} (${percentage}%)`;
+    progressElement.value = percentage;
 
-    const regex = /(\d+)\/\d+ \((\d+\.\d+)%\)/;
-    const match = statsStr.match(regex);
-
-    if (match) {
-        let currentStickers = parseInt(match[1], 10);
-        const totalStickers = parseInt(match[0].split('/')[1], 10);
-
-        if (isChecked) {
-            currentStickers += 1;
-        } else {
-            currentStickers -= 1;
-        }
-
-        const newPercentage = ((currentStickers / totalStickers) * 100).toFixed(2);
-
-        statsElement.textContent = currentStickers + '/' + totalStickers + ' (' + newPercentage + '%)';
-        progressElement.value = newPercentage;
-
-        console.log("Updated Stats:", statsElement.textContent);
-    } else {
-        console.log("No match found.");
-    }
+    console.log("Updated Stats:", statsElement.textContent);
 }
 
 function handleButtonClickWithRequest(url, action) {
@@ -153,9 +140,9 @@ function addAllStickers() {
     checkboxes.forEach(checkbox => {
         if (!checkbox.checked) {
             checkbox.checked = true;
-            changeJokerStats(true);
         }
     });
+    updateStats();
 }
 
 function removeAllStickers() {
@@ -163,9 +150,9 @@ function removeAllStickers() {
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
             checkbox.checked = false;
-            changeJokerStats(false);
         }
     });
+    updateStats();
 }
 
 function setDefaultView() {
