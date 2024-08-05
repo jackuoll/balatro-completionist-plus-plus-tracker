@@ -9,18 +9,19 @@
 </head>
 
 <body>
-    <body onload="setDefaultView()">
     <h1 align="center">Completionist++</h1>
     <div class="progress-container">
         <p id="stats">{{ sticker_count }}/150 ({{ sticker_percentage }}%)</p>
         <progress id="progress" value="{{ sticker_percentage }}" max="100"></progress>
     </div>
-        <div class="button-container">
-        <button class="pixel-corners" onclick="handleButtonClickWithRequest('/add_all_gold_stickers')">Add All Stickers</button>
-        <button class="pixel-corners" onclick="handleButtonClickWithRequest('/remove_all_gold_stickers')">Remove All Stickers</button>
+    <div class="button-container">
+        <button class="pixel-corners" onclick="handleButtonClickWithRequest('/add_all_gold_stickers', 'addAll')">Add All Stickers</button>
+        <button class="pixel-corners" onclick="handleButtonClickWithRequest('/remove_all_gold_stickers', 'removeAll')">Remove All Stickers</button>
+    </div>
+    <div class="button-container">
         <button id="showCheckedButton" class="pixel-corners" onclick="showChecked(showCheckedButton)">Show Stickers Only </button>
+                <button id="showAllButton" class="pixel-corners" onclick="showAll(showAllButton)" style="background-color: lightgreen;">Show All</button>
         <button id="showUncheckedButton" class="pixel-corners" onclick="showUnchecked(showUncheckedButton)">Show No Stickers Only</button>
-        <button id="showAllButton" class="pixel-corners" onclick="showAll(showAllButton)">Show All</button>
     </div>
     <div class="joker-gallery">
         {% for joker in jokers %}

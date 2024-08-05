@@ -23,7 +23,7 @@ function checkboxClicked(checkbox) {
     .then(data => {
         console.log('Success:', data);
         changeJokerStats(checkbox.checked);
-        updateView();  // Update the view to maintain the current filter
+        updateView();
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -61,7 +61,7 @@ function changeJokerStats(isChecked) {
     }
 }
 
-function handleButtonClickWithRequest(url) {
+function handleButtonClickWithRequest(url, action) {
     fetch(url, {
         method: 'POST',
         headers: {
@@ -76,7 +76,12 @@ function handleButtonClickWithRequest(url) {
     })
     .then(data => {
         console.log('Success:', data);
-        window.location.reload();
+        if (action === 'addAll') {
+            addAllStickers();
+        } else if (action === 'removeAll') {
+            removeAllStickers();
+        }
+        updateView();
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -140,7 +145,22 @@ function highlightButton(button) {
     }
 }
 
-function setDefaultView() {
-    const showAllButton = document.getElementById('showAllButton');
-    showAll(showAllButton);
+function addAllStickers() {
+    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        if (!checkbox.checked) {
+            checkbox.checked = true;
+            changeJokerStats(true);
+        }
+    });
+}
+
+function removeAllStickers() {
+    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            checkbox.checked = false;
+            changeJokerStats(false);
+        }
+    });
 }
