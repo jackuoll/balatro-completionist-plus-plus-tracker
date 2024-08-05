@@ -27,7 +27,7 @@
         {% for joker in jokers %}
             <div class="joker-container">
                 <input type="checkbox" id="{{ joker.name }}" name="{{ joker.name }}" {% if joker.status == 'gold sticker' %} checked {% endif %}
-     onclick="checkboxClicked(this)" onchange=updateView()>
+     onclick="handleCheckboxClick(this)" onchange=updateView()>
                 <label for="{{ joker.name }}">{{ joker.name }}</label><br>
                 <img src="{{ url_for('static', filename='jokers/' + joker.name) }}.webp" alt="{{ joker.name }}" class="joker-image">
             </div>

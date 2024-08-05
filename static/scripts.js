@@ -1,10 +1,28 @@
 let currentView = 'all';
 let currentActiveButton = null;
 
-document.addEventListener('DOMContentLoaded', setDefaultView);
-document.addEventListener('DOMContentLoaded', updateStats)
+document.addEventListener('DOMContentLoaded', () => {
+    setDefaultView();
+    updateStats();
+    addJokerImageClickListeners();
+});
 
-function checkboxClicked(checkbox) {
+function makeJokerImageClickable() {
+    const jokerContainers = document.querySelectorAll('.joker-container');
+    jokerContainers.forEach(container => {
+        const checkbox = container.querySelector('input[type="checkbox"]');
+        const image = container.querySelector('.joker-image');
+
+        if (checkbox && image) {
+            image.addEventListener('click', () => {
+                checkbox.checked = !checkbox.checked;
+                checkboxClicked(checkbox);
+            });
+        }
+    });
+}
+
+function handleCheckboxClick(checkbox) {
     const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
 
     fetch('/change_joker_status', {
@@ -71,7 +89,7 @@ function handleButtonClickWithRequest(url, action) {
             removeAllStickers();
         }
         updateView();
-        highlightButton(currentActiveButton); // Maintain button highlight
+        highlightButton(currentActiveButton);
     })
     .catch((error) => {
         console.error('Error:', error);
