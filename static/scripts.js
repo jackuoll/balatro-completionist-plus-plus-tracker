@@ -4,7 +4,7 @@ let currentActiveButton = null;
 document.addEventListener('DOMContentLoaded', () => {
     setDefaultView();
     updateStats();
-    addJokerImageClickListeners();
+    makeJokerImageClickable();
 });
 
 function makeJokerImageClickable() {
