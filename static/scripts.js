@@ -16,7 +16,8 @@ function makeJokerImageClickable() {
         if (checkbox && image) {
             image.addEventListener('click', () => {
                 checkbox.checked = !checkbox.checked;
-                checkboxClicked(checkbox);
+                handleCheckboxClick(checkbox);
+                updateView();
             });
         }
     });
@@ -44,7 +45,6 @@ function handleCheckboxClick(checkbox) {
     .then(data => {
         console.log('Success:', data);
         updateStats();
-        updateView();
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -88,7 +88,6 @@ function handleButtonClickWithRequest(url, action) {
         } else if (action === 'removeAll') {
             removeAllStickers();
         }
-        updateView();
         highlightButton(currentActiveButton);
     })
     .catch((error) => {
@@ -161,6 +160,7 @@ function addAllStickers() {
         }
     });
     updateStats();
+    updateView();
 }
 
 function removeAllStickers() {
@@ -171,6 +171,7 @@ function removeAllStickers() {
         }
     });
     updateStats();
+    updateView();
 }
 
 function setDefaultView() {
