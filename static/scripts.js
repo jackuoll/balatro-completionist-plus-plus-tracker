@@ -57,7 +57,7 @@ function changeJokerStats(isChecked) {
     }
 }
 
-function handleButtonClick(url) {
+function handleButtonClickWithRequest(url) {
     fetch(url, {
         method: 'POST',
         headers: {
@@ -92,7 +92,9 @@ function updateView() {
     }
 }
 
-function showAll() {
+function showAll(button) {
+    highlightButton(button);
+
     currentView = 'all';
     const containers = document.querySelectorAll('.joker-container');
     containers.forEach(container => {
@@ -100,7 +102,9 @@ function showAll() {
    });
 }
 
-function showChecked() {
+function showChecked(button) {
+    highlightButton(button);
+
     currentView = 'checked';
     const containers = document.querySelectorAll('.joker-container');
     containers.forEach(container => {
@@ -109,11 +113,25 @@ function showChecked() {
     });
 }
 
-function showUnchecked() {
+function showUnchecked(button) {
+    highlightButton(button);
+
     currentView = 'unchecked';
     const containers = document.querySelectorAll('.joker-container');
     containers.forEach(container => {
-    const checkbox = container.querySelector('input[type="checkbox"]');
-    container.style.display = !checkbox.checked ? 'block' : 'none';
+        const checkbox = container.querySelector('input[type="checkbox"]');
+        container.style.display = !checkbox.checked ? 'block' : 'none';
     });
+}
+
+function highlightButton(button) {
+    const allButtons = document.querySelectorAll('button');
+
+    allButtons.forEach(button => {
+        button.style.backgroundColor = '#2A3839';
+    });
+
+    if (button) {
+        button.style.backgroundColor = 'lightgreen';
+    }
 }
