@@ -1,6 +1,8 @@
 let currentView = 'all';
 let currentActiveButton = null;
 
+document.addEventListener('DOMContentLoaded', setDefaultView);
+
 function checkboxClicked(checkbox) {
     const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
 
@@ -82,6 +84,7 @@ function handleButtonClickWithRequest(url, action) {
             removeAllStickers();
         }
         updateView();
+        highlightButton(currentActiveButton); // Maintain button highlight
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -91,11 +94,11 @@ function handleButtonClickWithRequest(url, action) {
 
 function updateView() {
     if (currentView === 'checked') {
-        showChecked();
+        showChecked(currentActiveButton);
     } else if (currentView === 'unchecked') {
-        showUnchecked();
+        showUnchecked(currentActiveButton);
     } else {
-        showAll();
+        showAll(currentActiveButton);
     }
 }
 
@@ -163,4 +166,9 @@ function removeAllStickers() {
             changeJokerStats(false);
         }
     });
+}
+
+function setDefaultView() {
+    const showAllButton = document.getElementById('showAllButton');
+    showAll(showAllButton);
 }
