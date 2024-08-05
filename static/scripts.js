@@ -1,3 +1,6 @@
+let currentView = 'all';
+let currentActiveButton = null;
+
 function checkboxClicked(checkbox) {
     const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
 
@@ -19,11 +22,12 @@ function checkboxClicked(checkbox) {
     })
     .then(data => {
         console.log('Success:', data);
-        changeJokerStats(checkbox.checked)
+        changeJokerStats(checkbox.checked);
+        updateView();  // Update the view to maintain the current filter
     })
     .catch((error) => {
         console.error('Error:', error);
-        alert('Error, check the console')
+        alert('Error, check the console');
     });
 }
 
@@ -76,11 +80,9 @@ function handleButtonClickWithRequest(url) {
     })
     .catch((error) => {
         console.error('Error:', error);
-        alert('Error, check the console')
+        alert('Error, check the console');
    });
 }
-
-let currentView = 'all';
 
 function updateView() {
     if (currentView === 'checked') {
@@ -94,8 +96,8 @@ function updateView() {
 
 function showAll(button) {
     highlightButton(button);
-
     currentView = 'all';
+
     const containers = document.querySelectorAll('.joker-container');
     containers.forEach(container => {
         container.style.display = 'block';
@@ -104,8 +106,8 @@ function showAll(button) {
 
 function showChecked(button) {
     highlightButton(button);
-
     currentView = 'checked';
+
     const containers = document.querySelectorAll('.joker-container');
     containers.forEach(container => {
         const checkbox = container.querySelector('input[type="checkbox"]');
@@ -115,8 +117,8 @@ function showChecked(button) {
 
 function showUnchecked(button) {
     highlightButton(button);
-
     currentView = 'unchecked';
+
     const containers = document.querySelectorAll('.joker-container');
     containers.forEach(container => {
         const checkbox = container.querySelector('input[type="checkbox"]');
@@ -125,13 +127,20 @@ function showUnchecked(button) {
 }
 
 function highlightButton(button) {
-    const allButtons = document.querySelectorAll('button');
-
-    allButtons.forEach(button => {
-        button.style.backgroundColor = '#2A3839';
+    const allButtons = document.querySelectorAll('.button-container .pixel-corners');
+    allButtons.forEach(btn => {
+        btn.style.backgroundColor = '#2A3839';
     });
 
     if (button) {
         button.style.backgroundColor = 'lightgreen';
+        currentActiveButton = button;
+    } else if (currentActiveButton) {
+        currentActiveButton.style.backgroundColor = 'lightgreen';
     }
+}
+
+function setDefaultView() {
+    const showAllButton = document.getElementById('showAllButton');
+    showAll(showAllButton);
 }
