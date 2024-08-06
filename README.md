@@ -15,22 +15,23 @@ Your progress is stored in a **SQLite** database. The backend is built using **F
 #### Linux/MacOS:
 
 ```bash
-# using shell
 git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
 cd balatro-completionist-plus-plus-tracker
-chmod +x run.sh && ./run.sh
+chmod +x run.sh
+# you need to have python installed on your system
+ ./run.sh # this script creates venv and installes python dependencies, then runs the application
 
-# or just click Code -> Download ZIP. Unpack the archive and execute run.sh script
+# or just click Code -> Download ZIP. Unpack the archive and execute run.sh
 ```
 
 #### Windows:
 ```shell
-# using cmd
 git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
 cd balatro-completionist-plus-plus-tracker
-run.bat
+# you need to have python installed on your system
+run.bat # this script creates venv and installes python dependencies, then runs the application
 
-# or just click Code -> Download ZIP. Unpack the archive and execute run.bat script
+# or just click Code -> Download ZIP. Unpack the archive and execute run.bat
 ```
 ### Docker way:
 
@@ -39,9 +40,9 @@ git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker
 cd balatro-completionist-plus-plus-tracker
 docker compose up -d
 
-# sqlite volume will be in folder "data" in the current directory
+# the sqlite volume path: ./data
 ```
 
 
 ## Usage
-Just open https://localhost:5000 in your browser. I tested the application in a chromium-based browser and Safari, not sure about how it works in Firefox.
+Just open https://localhost:5000 in your browser. I tested the application in a chromium-based browser and Safari, not sure about how it works in Firefox. 
