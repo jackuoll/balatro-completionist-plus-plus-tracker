@@ -17,7 +17,7 @@ Your progress is stored in a **SQLite** database. The backend is built using **F
 git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
 cd balatro-completionist-plus-plus-tracker
 pip install -r requirements.txt  # Flask and loguru
-python3 main.py
+python3 main.py  # you also need python3 as well
 ```
 ### Docker way:
 
