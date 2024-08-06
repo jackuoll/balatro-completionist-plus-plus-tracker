@@ -19,7 +19,7 @@ git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker
 cd balatro-completionist-plus-plus-tracker
 chmod +x run.sh
 # you need to have python installed on your system
- ./run.sh # this script creates venv and installes python dependencies, then runs the application
+ ./run.sh # create venv and install python dependencies, run the application
 
 # or just click Code -> Download ZIP. Unpack the archive and execute run.sh
 ```
@@ -29,7 +29,7 @@ chmod +x run.sh
 git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
 cd balatro-completionist-plus-plus-tracker
 # you need to have python installed on your system
-run.bat # this script creates venv and installes python dependencies, then runs the application
+run.bat # create venv and install python dependencies, run the application
 
 # or just click Code -> Download ZIP. Unpack the archive and execute run.bat
 ```
