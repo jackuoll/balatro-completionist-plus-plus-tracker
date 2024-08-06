@@ -33,6 +33,8 @@ run.bat # create venv and install python dependencies, run the application
 
 # or just click Code -> Download ZIP. Unpack the archive and execute run.bat
 ```
+After you run the script the first time to set up the venv and install dependencies, future runs will just start the application.
+
 ### Docker way:
 
 ```bash
