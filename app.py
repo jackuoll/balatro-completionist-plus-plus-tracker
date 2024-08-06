@@ -3,8 +3,7 @@ from sys import stderr
 from flask import Flask, render_template, request, jsonify
 from loguru import logger
 
-from db import init_db, init_jokers, get_all_jokers, update_joker_status, check_if_db_empty, \
-    remove_gold_stickers_from_all_jokers, add_gold_stickers_to_all_jokers
+from db import init_db, init_jokers, get_all_jokers, update_joker_status, check_if_db_empty, change_all_jokers_status
 
 app = Flask(__name__)
 
@@ -19,15 +18,8 @@ logger.info("Loguru started.")
 def index():
     jokers = get_all_jokers()
 
-    gold_sticker_count = sum(1 for joker in jokers if joker['status'] == 'gold sticker')
-
-    rounded_percentage = round(((gold_sticker_count * 100) / 150), 2)
-    rounded_percentage_formatted = f"{rounded_percentage:.2f}"
-
     return render_template('index.html',
-                           jokers=jokers,
-                           sticker_count=gold_sticker_count,
-                           sticker_percentage=rounded_percentage_formatted)
+                           jokers=jokers)
 
 
 @app.route('/change_joker_status', methods=['POST'])
@@ -52,7 +44,7 @@ def change_joker_status():
 @app.route('/remove_all_gold_stickers', methods=['POST'])
 def remove_all_gold_stickers():
     try:
-        remove_gold_stickers_from_all_jokers()
+        change_all_jokers_status(status='no gold sticker')
     except Exception as e:
         logger.error(f'Failed to remove all stickers from jokers. {e}')
         return jsonify({'error': 'Failed to update joker status'}), 500
@@ -64,7 +56,7 @@ def remove_all_gold_stickers():
 @app.route('/add_all_gold_stickers', methods=['POST'])
 def add_all_gold_stickers():
     try:
-        add_gold_stickers_to_all_jokers()
+        change_all_jokers_status(status='gold sticker')
     except Exception as e:
         logger.error(f'Failed to add gold stickers to all jokers. {e}')
         return jsonify({'error': 'Failed to add gold stickers to all jokers'}), 500
@@ -79,4 +71,4 @@ if __name__ == '__main__':
         logger.info('DB is empty, filling up')
         init_jokers()
 
-    app.run()
+    app.run(host='0.0.0.0', port=5000)

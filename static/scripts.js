@@ -1,4 +1,29 @@
-function checkboxClicked(checkbox) {
+let currentView = 'all';
+let currentActiveButton = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+    setDefaultView();
+    updateStats();
+    makeJokerImageClickable();
+});
+
+function makeJokerImageClickable() {
+    const jokerContainers = document.querySelectorAll('.joker-container');
+    jokerContainers.forEach(container => {
+        const checkbox = container.querySelector('input[type="checkbox"]');
+        const image = container.querySelector('.joker-image');
+
+        if (checkbox && image) {
+            image.addEventListener('click', () => {
+                checkbox.checked = !checkbox.checked;
+                handleCheckboxClick(checkbox);
+                updateView();
+            });
+        }
+    });
+}
+
+function handleCheckboxClick(checkbox) {
     const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
 
     fetch('/change_joker_status', {
@@ -19,45 +44,31 @@ function checkboxClicked(checkbox) {
     })
     .then(data => {
         console.log('Success:', data);
-        changeJokerStats(checkbox.checked)
+        updateStats();
     })
     .catch((error) => {
         console.error('Error:', error);
-        alert('Error, check the console')
+        alert('Error, check the console');
     });
 }
 
-function changeJokerStats(isChecked) {
+function updateStats() {
+    const totalJokers = 150;
+
+    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
+    const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+    const percentage = ((checkedCount / totalJokers) * 100).toFixed(2);
+
     const statsElement = document.getElementById("stats");
     const progressElement = document.getElementById('progress');
 
-    let statsStr = statsElement.textContent;
+    statsElement.textContent = `${checkedCount}/${totalJokers} (${percentage}%)`;
+    progressElement.value = percentage;
 
-    const regex = /(\d+)\/\d+ \((\d+\.\d+)%\)/;
-    const match = statsStr.match(regex);
-
-    if (match) {
-        let currentStickers = parseInt(match[1], 10);
-        const totalStickers = parseInt(match[0].split('/')[1], 10);
-
-        if (isChecked) {
-            currentStickers += 1;
-        } else {
-            currentStickers -= 1;
-        }
-
-        const newPercentage = ((currentStickers / totalStickers) * 100).toFixed(2);
-
-        statsElement.textContent = currentStickers + '/' + totalStickers + ' (' + newPercentage + '%)';
-        progressElement.value = newPercentage;
-
-        console.log("Updated Stats:", statsElement.textContent);
-    } else {
-        console.log("No match found.");
-    }
+    console.log("Updated Stats:", statsElement.textContent);
 }
 
-function handleButtonClick(url) {
+function handleButtonClickWithRequest(url, action) {
     fetch(url, {
         method: 'POST',
         headers: {
@@ -72,10 +83,98 @@ function handleButtonClick(url) {
     })
     .then(data => {
         console.log('Success:', data);
-        window.location.reload();
+        if (action === 'addAll') {
+            addAllStickers();
+        } else if (action === 'removeAll') {
+            removeAllStickers();
+        }
+        highlightButton(currentActiveButton);
     })
     .catch((error) => {
         console.error('Error:', error);
-        alert('Error, check the console')
+        alert('Error, check the console');
    });
+}
+
+function updateView() {
+    if (currentView === 'checked') {
+        showChecked(currentActiveButton);
+    } else if (currentView === 'unchecked') {
+        showUnchecked(currentActiveButton);
+    } else {
+        showAll(currentActiveButton);
+    }
+}
+
+function showAll(button) {
+    highlightButton(button);
+    currentView = 'all';
+
+    const containers = document.querySelectorAll('.joker-container');
+    containers.forEach(container => {
+        container.style.display = 'block';
+   });
+}
+
+function showChecked(button) {
+    highlightButton(button);
+    currentView = 'checked';
+
+    const containers = document.querySelectorAll('.joker-container');
+    containers.forEach(container => {
+        const checkbox = container.querySelector('input[type="checkbox"]');
+        container.style.display = checkbox.checked ? 'block' : 'none';
+    });
+}
+
+function showUnchecked(button) {
+    highlightButton(button);
+    currentView = 'unchecked';
+
+    const containers = document.querySelectorAll('.joker-container');
+    containers.forEach(container => {
+        const checkbox = container.querySelector('input[type="checkbox"]');
+        container.style.display = !checkbox.checked ? 'block' : 'none';
+    });
+}
+
+function highlightButton(button) {
+    const allButtons = document.querySelectorAll('.button-container .pixel-corners');
+    allButtons.forEach(btn => {
+        btn.style.backgroundColor = '#2A3839';
+    });
+
+    if (button) {
+        button.style.backgroundColor = 'lightgreen';
+        currentActiveButton = button;
+    } else if (currentActiveButton) {
+        currentActiveButton.style.backgroundColor = 'lightgreen';
+    }
+}
+
+function addAllStickers() {
+    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        if (!checkbox.checked) {
+            checkbox.checked = true;
+        }
+    });
+    updateStats();
+    updateView();
+}
+
+function removeAllStickers() {
+    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            checkbox.checked = false;
+        }
+    });
+    updateStats();
+    updateView();
+}
+
+function setDefaultView() {
+    const showAllButton = document.getElementById('showAllButton');
+    showAll(showAllButton);
 }

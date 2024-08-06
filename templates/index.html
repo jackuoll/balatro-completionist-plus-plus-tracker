@@ -2,24 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='button-magic.css') }}">
     <script src="{{ url_for('static', filename='scripts.js') }}"> </script>
-    <title>Gold Stake Stickers</title>
+    <title>Completionist++ Tracker</title>
 </head>
 
 <body>
     <h1 align="center">Completionist++</h1>
-    <button onclick="handleButtonClick('/add_all_gold_stickers')">Add All Stickers</button>
-    <button onclick="handleButtonClick('/remove_all_gold_stickers')">Remove All Stickers</button>
     <div class="progress-container">
-        <p id="stats">{{ sticker_count }}/150 ({{ sticker_percentage }}%)</p>
-        <progress id="progress" value="{{ sticker_percentage }}" max="100"></progress>
+        <p id="stats">0/0 (0.00%)</p>
+        <progress id="progress" value="0" max="100"></progress>
+    </div>
+    <div class="button-container">
+        <button class="pixel-corners" onclick="handleButtonClickWithRequest('/add_all_gold_stickers', 'addAll')">Add All Stickers</button>
+        <button class="pixel-corners" onclick="handleButtonClickWithRequest('/remove_all_gold_stickers', 'removeAll')">Remove All Stickers</button>
+    </div>
+    <div class="button-container">
+        <button id="showCheckedButton" class="pixel-corners" onclick="showChecked(this)">Show Stickers Only </button>
+        <button id="showAllButton" class="pixel-corners" onclick="showAll(this)">Show All</button>
+        <button id="showUncheckedButton" class="pixel-corners" onclick="showUnchecked(this)">Show No Stickers Only</button>
     </div>
     <div class="joker-gallery">
         {% for joker in jokers %}
             <div class="joker-container">
                 <input type="checkbox" id="{{ joker.name }}" name="{{ joker.name }}" {% if joker.status == 'gold sticker' %} checked {% endif %}
-     onclick="checkboxClicked(this)">
+     onclick="handleCheckboxClick(this)" onchange=updateView()>
                 <label for="{{ joker.name }}">{{ joker.name }}</label><br>
                 <img src="{{ url_for('static', filename='jokers/' + joker.name) }}.webp" alt="{{ joker.name }}" class="joker-image">
             </div>

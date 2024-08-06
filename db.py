@@ -1,8 +1,9 @@
+import os
 import sqlite3
 
 
 def init_db():
-    conn = sqlite3.connect('database.sqlite')
+    conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), 'data', 'app.db'))
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -25,7 +26,7 @@ def init_db():
 
 
 def init_jokers():
-    conn = sqlite3.connect('database.sqlite')
+    conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), 'data', 'app.db'))
     cursor = conn.cursor()
 
     jokers = ('8 Ball', 'Abstract Joker', 'Acrobat', 'Ancient Joker', 'Arrowhead', 'Astronomer', 'Banner', 'Baron',
@@ -62,7 +63,7 @@ def init_jokers():
 
 
 def get_all_jokers():
-    conn = sqlite3.connect('database.sqlite')
+    conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), 'data', 'app.db'))
     conn.row_factory = sqlite3.Row
 
     cursor = conn.cursor()
@@ -81,7 +82,7 @@ def get_all_jokers():
 
 
 def update_joker_status(joker_name: str, status: str):
-    conn = sqlite3.connect('database.sqlite')
+    conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), 'data', 'app.db'))
     cursor = conn.cursor()
 
     query = """
@@ -98,7 +99,7 @@ def update_joker_status(joker_name: str, status: str):
 
 
 def check_if_db_empty() -> bool:
-    conn = sqlite3.connect('database.sqlite')
+    conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), 'data', 'app.db'))
     cursor = conn.cursor()
 
     cursor.execute("SELECT COUNT(*) FROM jokers")
@@ -113,7 +114,7 @@ def check_if_db_empty() -> bool:
 
 
 def get_jokers_by_status(status: str):
-    conn = sqlite3.connect('database.sqlite')
+    conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), 'data', 'app.db'))
     conn.row_factory = sqlite3.Row
 
     cursor = conn.cursor()
@@ -132,28 +133,13 @@ def get_jokers_by_status(status: str):
     return jokers
 
 
-def remove_gold_stickers_from_all_jokers():
-    conn = sqlite3.connect('database.sqlite')
+def change_all_jokers_status(status: str):
+    conn = sqlite3.connect(os.path.join(os.path.dirname(__file__), 'data', 'app.db'))
     cursor = conn.cursor()
 
-    query = """
+    query = f"""
         UPDATE jokers 
-        SET status = 'no gold sticker'
-    """
-
-    cursor.execute(query)
-
-    conn.commit()
-    conn.close()
-
-
-def add_gold_stickers_to_all_jokers():
-    conn = sqlite3.connect('database.sqlite')
-    cursor = conn.cursor()
-
-    query = """
-        UPDATE jokers 
-        SET status = 'gold sticker'
+        SET status = '{status}'
     """
 
     cursor.execute(query)
