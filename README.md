@@ -11,9 +11,26 @@ Your progress is stored in a **SQLite** database. The backend is built using **F
 
 ## Installation
 
-### First way:
+### Default way:
 
 ```bash
 git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
 cd balatro-completionist-plus-plus-tracker
+pip install -r requirements.txt  # Flask and loguru
+python3 main.py
 ```
+### Docker way:
+
+```bash
+git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
+cd balatro-completionist-plus-plus-tracker
+docker compose up -d
+```
+
+### Lazy way:
+```bash
+Download a packaged application and simply run it
+```
+
+## Usage
+Just open https://localhost:5000 in your browser. I tested the application in a chromium-based browser and Safari, not sure about how it works in Firefox.
