@@ -95,3 +95,7 @@
 .pixel-corners::after {
   margin: -3px;
 }
+
+.pixel-corners:hover::after {
+  background: black;
+}

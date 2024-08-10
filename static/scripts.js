@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
     makeJokerImageClickable();
 });
 
+ window.addEventListener('scroll', function() {
+    const stickyHeader = document.querySelector('.sticky-top');
+    const stickyHeaderDiv = stickyHeader.querySelector('.row');
+    const headerMarginBotton = parseInt(getComputedStyle(stickyHeaderDiv).marginBottom, 10);
+    if (window.scrollY > headerMarginBotton) {
+        stickyHeader.classList.add('sticky-active');
+    } else {
+        stickyHeader.classList.remove('sticky-active');
+    }
+});
+
 function makeJokerImageClickable() {
     const jokerContainers = document.querySelectorAll('.joker-container');
     jokerContainers.forEach(container => {
@@ -51,6 +62,36 @@ function handleCheckboxClick(checkbox) {
         alert('Error, check the console');
     });
 }
+function handleCardClick(card) {
+    const checkbox = card.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked
+    const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
+
+    fetch('/change_joker_status', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            joker_name: card.id,
+            status: status
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Response from backend was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        updateStats();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Error, check the console');
+    });
+}
 
 function updateStats() {
     const totalJokers = 150;
@@ -60,10 +101,11 @@ function updateStats() {
     const percentage = ((checkedCount / totalJokers) * 100).toFixed(2);
 
     const statsElement = document.getElementById("stats");
-    const progressElement = document.getElementById('progress');
+    const progressBar = document.getElementById('progress');
 
     statsElement.textContent = `${checkedCount}/${totalJokers} (${percentage}%)`;
-    progressElement.value = percentage;
+    progressBar.ariaValueNow = percentage;
+    progressBar.style.width = percentage + '%';
 
     console.log("Updated Stats:", statsElement.textContent);
 }
@@ -103,6 +145,34 @@ function updateView() {
         showUnchecked(currentActiveButton);
     } else {
         showAll(currentActiveButton);
+    }
+}
+
+function filterStickers(button) {
+    const containers = document.querySelectorAll('.joker-container');
+    switch (button.id) {
+        case 'filter-all':
+            currentView = 'all';
+            containers.forEach(container => {
+                container.style.display = 'block';
+           });
+            break;
+        case 'filter-stickers-only':
+            currentView = 'checked';
+            containers.forEach(container => {
+                const checkbox = container.querySelector('input[type="checkbox"]');
+                container.style.display = checkbox.checked ? 'block' : 'none';
+            });
+            break;
+        case 'filter-no-stickers-only':
+            currentView = 'unchecked';
+            containers.forEach(container => {
+                const checkbox = container.querySelector('input[type="checkbox"]');
+                container.style.display = !checkbox.checked ? 'block' : 'none';
+            });
+            break;
+        default:
+            return;
     }
 }
 
