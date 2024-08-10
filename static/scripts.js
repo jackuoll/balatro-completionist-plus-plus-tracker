@@ -91,6 +91,11 @@ function handleCardClick(card) {
         console.error('Error:', error);
         alert('Error, check the console');
     });
+    const event = new Event('change', {
+        bubbles: true,
+        cancelable: true
+    });
+    checkbox.dispatchEvent(event);
 }
 
 function updateStats() {
