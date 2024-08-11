@@ -30,8 +30,8 @@
             <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="container text-center">
-                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="handleButtonClickWithRequest('/add_all_gold_stickers', 'addAll')">Add All Stickers</button>
-                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="handleButtonClickWithRequest('/remove_all_gold_stickers', 'removeAll')">Remove All Stickers</button>
+                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="setAllState(true)">Add All Stickers</button>
+                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="setAllState(false)">Remove All Stickers</button>
                     </div>
                     <div class="container text-center filter-group">
                         <input type="radio" class="btn-check" name="filters" id="filter-stickers-only" autocomplete="off" onchange="filterStickers(this)">
@@ -49,20 +49,8 @@
     </div>
 
     <div id="cards-container" class="container-fluid px-sm-5">
-        <div class="row">
-            {% for joker in jokers %}
-            <div class="joker-container col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
-                <div class="card pixel-corners h-100" id="{{ joker.name }}" onclick="handleCardClick(this)">
-                    <div class="card-body">
-                        <img src="{{ url_for('static', filename='jokers/' + joker.name) }}.webp" alt="{{ joker.name }}" class="card-img-bottom">
-                        <div class="form-check py-1">
-                            <input type="checkbox" id="{{ joker.name }}.checkbox" {% if joker.status == 'gold sticker' %} checked {% endif %} onchange=updateView()>
-                            <label for="{{ joker.name }}.checkbox" class="custom-checkbox">{{ joker.name }}</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+        <div id="joker-grid" class="row">
+
         </div>
     </div>
 </body>
