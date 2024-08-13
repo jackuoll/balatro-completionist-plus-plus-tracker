@@ -218,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setStatsFromProfile(jokers);
             } catch (err) {
                 console.error('Decompression failed:', err);
+                alert('Error, check the console');
             }
         }
     });
