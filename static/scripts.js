@@ -258,7 +258,7 @@ function parseObj(data){
 function prepareJokerData(data){
     let jokers = {};
     for (const [jId, playInfo] of Object.entries(data['joker_usage'])) {
-        jokers[jId] = playInfo['wins']['8'] !== null;
+        jokers[jId] = playInfo['wins']['8'] != null;
     }
     return jokers;
 }
