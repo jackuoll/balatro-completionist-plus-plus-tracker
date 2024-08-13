@@ -1,752 +1,902 @@
 [
-  {
-    "name": "8 Ball",
-    "image": "8 Ball.webp",
-    "status": false
-  },
-  {
-    "name": "Abstract Joker",
-    "image": "Abstract Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Acrobat",
-    "image": "Acrobat.webp",
-    "status": false
-  },
-  {
-    "name": "Ancient Joker",
-    "image": "Ancient Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Arrowhead",
-    "image": "Arrowhead.webp",
-    "status": false
-  },
-  {
-    "name": "Astronomer",
-    "image": "Astronomer.webp",
-    "status": false
-  },
-  {
-    "name": "Banner",
-    "image": "Banner.webp",
-    "status": false
-  },
-  {
-    "name": "Baron",
-    "image": "Baron.webp",
-    "status": false
-  },
-  {
-    "name": "Baseball Card",
-    "image": "Baseball Card.webp",
-    "status": false
-  },
-  {
-    "name": "Blackboard",
-    "image": "Blackboard.webp",
-    "status": false
-  },
-  {
-    "name": "Bloodstone",
-    "image": "Bloodstone.webp",
-    "status": false
-  },
-  {
-    "name": "Blue Joker",
-    "image": "Blue Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Blueprint",
-    "image": "Blueprint.webp",
-    "status": false
-  },
-  {
-    "name": "Bootstraps",
-    "image": "Bootstraps.webp",
-    "status": false
-  },
-  {
-    "name": "Brainstorm",
-    "image": "Brainstorm.webp",
-    "status": false
-  },
-  {
-    "name": "Bull",
-    "image": "Bull.webp",
-    "status": false
-  },
-  {
-    "name": "Burglar",
-    "image": "Burglar.webp",
-    "status": false
-  },
-  {
-    "name": "Burnt Joker",
-    "image": "Burnt Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Business Card",
-    "image": "Business Card.webp",
-    "status": false
-  },
-  {
-    "name": "Campfire",
-    "image": "Campfire.webp",
-    "status": false
-  },
-  {
-    "name": "Canio",
-    "image": "Canio.webp",
-    "status": false
-  },
-  {
-    "name": "Card Sharp",
-    "image": "Card Sharp.webp",
-    "status": false
-  },
-  {
-    "name": "Cartomancer",
-    "image": "Cartomancer.webp",
-    "status": false
-  },
-  {
-    "name": "Castle",
-    "image": "Castle.webp",
-    "status": false
-  },
-  {
-    "name": "Cavendish",
-    "image": "Cavendish.webp",
-    "status": false
-  },
-  {
-    "name": "Ceremonial Dagger",
-    "image": "Ceremonial Dagger.webp",
-    "status": false
-  },
-  {
-    "name": "Certificate",
-    "image": "Certificate.webp",
-    "status": false
-  },
-  {
-    "name": "Chaos the Clown",
-    "image": "Chaos the Clown.webp",
-    "status": false
-  },
-  {
-    "name": "Chicot",
-    "image": "Chicot.webp",
-    "status": false
-  },
-  {
-    "name": "Clever Joker",
-    "image": "Clever Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Cloud 9",
-    "image": "Cloud 9.webp",
-    "status": false
-  },
-  {
-    "name": "Constellation",
-    "image": "Constellation.webp",
-    "status": false
-  },
-  {
-    "name": "Crafty Joker",
-    "image": "Crafty Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Crazy Joker",
-    "image": "Crazy Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Credit Card",
-    "image": "Credit Card.webp",
-    "status": false
-  },
-  {
-    "name": "Delayed Gratification",
-    "image": "Delayed Gratification.webp",
-    "status": false
-  },
-  {
-    "name": "Devious Joker",
-    "image": "Devious Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Diet Cola",
-    "image": "Diet Cola.webp",
-    "status": false
-  },
-  {
-    "name": "DNA",
-    "image": "DNA.webp",
-    "status": false
-  },
-  {
-    "name": "Driver's License",
-    "image": "Driver's License.webp",
-    "status": false
-  },
-  {
-    "name": "Droll Joker",
-    "image": "Droll Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Drunkard",
-    "image": "Drunkard.webp",
-    "status": false
-  },
-  {
-    "name": "Dusk",
-    "image": "Dusk.webp",
-    "status": false
-  },
-  {
-    "name": "Egg",
-    "image": "Egg.webp",
-    "status": false
-  },
-  {
-    "name": "Erosion",
-    "image": "Erosion.webp",
-    "status": false
-  },
-  {
-    "name": "Even Steven",
-    "image": "Even Steven.webp",
-    "status": false
-  },
-  {
-    "name": "Faceless Joker",
-    "image": "Faceless Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Fibonacci",
-    "image": "Fibonacci.webp",
-    "status": false
-  },
-  {
-    "name": "Flash Card",
-    "image": "Flash Card.webp",
-    "status": false
-  },
-  {
-    "name": "Flower Pot",
-    "image": "Flower Pot.webp",
-    "status": false
-  },
-  {
-    "name": "Fortune Teller",
-    "image": "Fortune Teller.webp",
-    "status": false
-  },
-  {
-    "name": "Four Fingers",
-    "image": "Four Fingers.webp",
-    "status": false
-  },
-  {
-    "name": "Gift Card",
-    "image": "Gift Card.webp",
-    "status": false
-  },
-  {
-    "name": "Glass Joker",
-    "image": "Glass Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Gluttonous Joker",
-    "image": "Gluttonous Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Golden Joker",
-    "image": "Golden Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Golden Ticket",
-    "image": "Golden Ticket.webp",
-    "status": false
-  },
-  {
-    "name": "Greedy Joker",
-    "image": "Greedy Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Green Joker",
-    "image": "Green Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Gros Michel",
-    "image": "Gros Michel.webp",
-    "status": false
-  },
-  {
-    "name": "Hack",
-    "image": "Hack.webp",
-    "status": false
-  },
-  {
-    "name": "Half Joker",
-    "image": "Half Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Hallucination",
-    "image": "Hallucination.webp",
-    "status": false
-  },
-  {
-    "name": "Hanging Chad",
-    "image": "Hanging Chad.webp",
-    "status": false
-  },
-  {
-    "name": "Hiker",
-    "image": "Hiker.webp",
-    "status": false
-  },
-  {
-    "name": "Hit the Road",
-    "image": "Hit the Road.webp",
-    "status": false
-  },
-  {
-    "name": "Hologram",
-    "image": "Hologram.webp",
-    "status": false
-  },
-  {
-    "name": "Ice Cream",
-    "image": "Ice Cream.webp",
-    "status": false
-  },
-  {
-    "name": "Invisible Joker",
-    "image": "Invisible Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Joker",
-    "image": "Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Joker Stencil",
-    "image": "Joker Stencil.webp",
-    "status": false
-  },
-  {
-    "name": "Jolly Joker",
-    "image": "Jolly Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Juggler",
-    "image": "Juggler.webp",
-    "status": false
-  },
-  {
-    "name": "Loyalty Card",
-    "image": "Loyalty Card.webp",
-    "status": false
-  },
-  {
-    "name": "Luchador",
-    "image": "Luchador.webp",
-    "status": false
-  },
-  {
-    "name": "Lucky Cat",
-    "image": "Lucky Cat.webp",
-    "status": false
-  },
-  {
-    "name": "Lusty Joker",
-    "image": "Lusty Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Mad Joker",
-    "image": "Mad Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Madness",
-    "image": "Madness.webp",
-    "status": false
-  },
-  {
-    "name": "Mail-In Rebate",
-    "image": "Mail-In Rebate.webp",
-    "status": false
-  },
-  {
-    "name": "Marble Joker",
-    "image": "Marble Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Matador",
-    "image": "Matador.webp",
-    "status": false
-  },
-  {
-    "name": "Merry Andy",
-    "image": "Merry Andy.webp",
-    "status": false
-  },
-  {
-    "name": "Midas Mask",
-    "image": "Midas Mask.webp",
-    "status": false
-  },
-  {
-    "name": "Mime",
-    "image": "Mime.webp",
-    "status": false
-  },
-  {
-    "name": "Misprint",
-    "image": "Misprint.webp",
-    "status": false
-  },
-  {
-    "name": "Mr. Bones",
-    "image": "Mr. Bones.webp",
-    "status": false
-  },
-  {
-    "name": "Mystic Summit",
-    "image": "Mystic Summit.webp",
-    "status": false
-  },
-  {
-    "name": "Obelisk",
-    "image": "Obelisk.webp",
-    "status": false
-  },
-  {
-    "name": "Odd Todd",
-    "image": "Odd Todd.webp",
-    "status": false
-  },
-  {
-    "name": "Onyx Agate",
-    "image": "Onyx Agate.webp",
-    "status": false
-  },
-  {
-    "name": "Oops! All 6s",
-    "image": "Oops! All 6s.webp",
-    "status": false
-  },
-  {
-    "name": "Pareidolia",
-    "image": "Pareidolia.webp",
-    "status": false
-  },
-  {
-    "name": "Perkeo",
-    "image": "Perkeo.webp",
-    "status": false
-  },
-  {
-    "name": "Photograph",
-    "image": "Photograph.webp",
-    "status": false
-  },
-  {
-    "name": "Popcorn",
-    "image": "Popcorn.webp",
-    "status": false
-  },
-  {
-    "name": "Raised Fist",
-    "image": "Raised Fist.webp",
-    "status": false
-  },
-  {
-    "name": "Ramen",
-    "image": "Ramen.webp",
-    "status": false
-  },
-  {
-    "name": "Red Card",
-    "image": "Red Card.webp",
-    "status": false
-  },
-  {
-    "name": "Reserved Parking",
-    "image": "Reserved Parking.webp",
-    "status": false
-  },
-  {
-    "name": "Ride the Bus",
-    "image": "Ride the Bus.webp",
-    "status": false
-  },
-  {
-    "name": "Riff-Raff",
-    "image": "Riff-Raff.webp",
-    "status": false
-  },
-  {
-    "name": "Rocket",
-    "image": "Rocket.webp",
-    "status": false
-  },
-  {
-    "name": "Rough Gem",
-    "image": "Rough Gem.webp",
-    "status": false
-  },
-  {
-    "name": "Runner",
-    "image": "Runner.webp",
-    "status": false
-  },
-  {
-    "name": "Satellite",
-    "image": "Satellite.webp",
-    "status": false
-  },
-  {
-    "name": "Scary Face",
-    "image": "Scary Face.webp",
-    "status": false
-  },
-  {
-    "name": "Scholar",
-    "image": "Scholar.webp",
-    "status": false
-  },
-  {
-    "name": "S\u00e9ance",
-    "image": "S\u00e9ance.webp",
-    "status": false
-  },
-  {
-    "name": "Seeing Double",
-    "image": "Seeing Double.webp",
-    "status": false
-  },
-  {
-    "name": "Seltzer",
-    "image": "Seltzer.webp",
-    "status": false
-  },
-  {
-    "name": "Shoot the Moon",
-    "image": "Shoot the Moon.webp",
-    "status": false
-  },
-  {
-    "name": "Shortcut",
-    "image": "Shortcut.webp",
-    "status": false
-  },
-  {
-    "name": "Showman",
-    "image": "Showman.webp",
-    "status": false
-  },
-  {
-    "name": "Sixth Sense",
-    "image": "Sixth Sense.webp",
-    "status": false
-  },
-  {
-    "name": "Sly Joker",
-    "image": "Sly Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Smeared Joker",
-    "image": "Smeared Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Smiley Face",
-    "image": "Smiley Face.webp",
-    "status": false
-  },
-  {
-    "name": "Sock and Buskin",
-    "image": "Sock and Buskin.webp",
-    "status": false
-  },
-  {
-    "name": "Space Joker",
-    "image": "Space Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Spare Trousers",
-    "image": "Spare Trousers.webp",
-    "status": false
-  },
-  {
-    "name": "Splash",
-    "image": "Splash.webp",
-    "status": false
-  },
-  {
-    "name": "Square Joker",
-    "image": "Square Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Steel Joker",
-    "image": "Steel Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Stone Joker",
-    "image": "Stone Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Stuntman",
-    "image": "Stuntman.webp",
-    "status": false
-  },
-  {
-    "name": "Supernova",
-    "image": "Supernova.webp",
-    "status": false
-  },
-  {
-    "name": "Superposition",
-    "image": "Superposition.webp",
-    "status": false
-  },
-  {
-    "name": "Swashbuckler",
-    "image": "Swashbuckler.webp",
-    "status": false
-  },
-  {
-    "name": "The Duo",
-    "image": "The Duo.webp",
-    "status": false
-  },
-  {
-    "name": "The Family",
-    "image": "The Family.webp",
-    "status": false
-  },
-  {
-    "name": "The Idol",
-    "image": "The Idol.webp",
-    "status": false
-  },
-  {
-    "name": "The Order",
-    "image": "The Order.webp",
-    "status": false
-  },
-  {
-    "name": "The Tribe",
-    "image": "The Tribe.webp",
-    "status": false
-  },
-  {
-    "name": "The Trio",
-    "image": "The Trio.webp",
-    "status": false
-  },
-  {
-    "name": "Throwback",
-    "image": "Throwback.webp",
-    "status": false
-  },
-  {
-    "name": "To Do List",
-    "image": "To Do List.webp",
-    "status": false
-  },
-  {
-    "name": "To the Moon",
-    "image": "To the Moon.webp",
-    "status": false
-  },
-  {
-    "name": "Trading Card",
-    "image": "Trading Card.webp",
-    "status": false
-  },
-  {
-    "name": "Triboulet",
-    "image": "Triboulet.webp",
-    "status": false
-  },
-  {
-    "name": "Troubadour",
-    "image": "Troubadour.webp",
-    "status": false
-  },
-  {
-    "name": "Turtle Bean",
-    "image": "Turtle Bean.webp",
-    "status": false
-  },
-  {
-    "name": "Vagabond",
-    "image": "Vagabond.webp",
-    "status": false
-  },
-  {
-    "name": "Vampire",
-    "image": "Vampire.webp",
-    "status": false
-  },
-  {
-    "name": "Walkie Talkie",
-    "image": "Walkie Talkie.webp",
-    "status": false
-  },
-  {
-    "name": "Wee Joker",
-    "image": "Wee Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Wily Joker",
-    "image": "Wily Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Wrathful Joker",
-    "image": "Wrathful Joker.webp",
-    "status": false
-  },
-  {
-    "name": "Yorick",
-    "image": "Yorick.webp",
-    "status": false
-  },
-  {
-    "name": "Zany Joker",
-    "image": "Zany Joker.webp",
-    "status": false
-  }
+    {
+        "name": "8 Ball",
+        "image": "8 Ball.webp",
+        "status": false,
+        "id": "j_8_ball"
+    },
+    {
+        "name": "Abstract Joker",
+        "image": "Abstract Joker.webp",
+        "status": false,
+        "id": "j_abstract"
+    },
+    {
+        "name": "Acrobat",
+        "image": "Acrobat.webp",
+        "status": false,
+        "id": "j_acrobat"
+    },
+    {
+        "name": "Ancient Joker",
+        "image": "Ancient Joker.webp",
+        "status": false,
+        "id": "j_ancient"
+    },
+    {
+        "name": "Arrowhead",
+        "image": "Arrowhead.webp",
+        "status": false,
+        "id": "j_arrowhead"
+    },
+    {
+        "name": "Astronomer",
+        "image": "Astronomer.webp",
+        "status": false,
+        "id": "j_astronomer"
+    },
+    {
+        "name": "Banner",
+        "image": "Banner.webp",
+        "status": false,
+        "id": "j_banner"
+    },
+    {
+        "name": "Baron",
+        "image": "Baron.webp",
+        "status": false,
+        "id": "j_baron"
+    },
+    {
+        "name": "Baseball Card",
+        "image": "Baseball Card.webp",
+        "status": false,
+        "id": "j_baseball"
+    },
+    {
+        "name": "Blackboard",
+        "image": "Blackboard.webp",
+        "status": false,
+        "id": "j_blackboard"
+    },
+    {
+        "name": "Bloodstone",
+        "image": "Bloodstone.webp",
+        "status": false,
+        "id": "j_bloodstone"
+    },
+    {
+        "name": "Blue Joker",
+        "image": "Blue Joker.webp",
+        "status": false,
+        "id": "j_blue_joker"
+    },
+    {
+        "name": "Blueprint",
+        "image": "Blueprint.webp",
+        "status": false,
+        "id": "j_blueprint"
+    },
+    {
+        "name": "Bootstraps",
+        "image": "Bootstraps.webp",
+        "status": false,
+        "id": "j_bootstraps"
+    },
+    {
+        "name": "Brainstorm",
+        "image": "Brainstorm.webp",
+        "status": false,
+        "id": "j_brainstorm"
+    },
+    {
+        "name": "Bull",
+        "image": "Bull.webp",
+        "status": false,
+        "id": "j_bull"
+    },
+    {
+        "name": "Burglar",
+        "image": "Burglar.webp",
+        "status": false,
+        "id": "j_burglar"
+    },
+    {
+        "name": "Burnt Joker",
+        "image": "Burnt Joker.webp",
+        "status": false,
+        "id": "j_burnt"
+    },
+    {
+        "name": "Business Card",
+        "image": "Business Card.webp",
+        "status": false,
+        "id": "j_business"
+    },
+    {
+        "name": "Campfire",
+        "image": "Campfire.webp",
+        "status": false,
+        "id": "j_campfire"
+    },
+    {
+        "name": "Canio",
+        "image": "Canio.webp",
+        "status": false,
+        "id": "j_caino"
+    },
+    {
+        "name": "Card Sharp",
+        "image": "Card Sharp.webp",
+        "status": false,
+        "id": "j_card_sharp"
+    },
+    {
+        "name": "Cartomancer",
+        "image": "Cartomancer.webp",
+        "status": false,
+        "id": "j_cartomancer"
+    },
+    {
+        "name": "Castle",
+        "image": "Castle.webp",
+        "status": false,
+        "id": "j_castle"
+    },
+    {
+        "name": "Cavendish",
+        "image": "Cavendish.webp",
+        "status": false,
+        "id": "j_cavendish"
+    },
+    {
+        "name": "Ceremonial Dagger",
+        "image": "Ceremonial Dagger.webp",
+        "status": false,
+        "id": "j_ceremonial"
+    },
+    {
+        "name": "Certificate",
+        "image": "Certificate.webp",
+        "status": false,
+        "id": "j_certificate"
+    },
+    {
+        "name": "Chaos the Clown",
+        "image": "Chaos the Clown.webp",
+        "status": false,
+        "id": "j_chaos"
+    },
+    {
+        "name": "Chicot",
+        "image": "Chicot.webp",
+        "status": false,
+        "id": "j_chicot"
+    },
+    {
+        "name": "Clever Joker",
+        "image": "Clever Joker.webp",
+        "status": false,
+        "id": "j_clever"
+    },
+    {
+        "name": "Cloud 9",
+        "image": "Cloud 9.webp",
+        "status": false,
+        "id": "j_cloud_9"
+    },
+    {
+        "name": "Constellation",
+        "image": "Constellation.webp",
+        "status": false,
+        "id": "j_constellation"
+    },
+    {
+        "name": "Crafty Joker",
+        "image": "Crafty Joker.webp",
+        "status": false,
+        "id": "j_crafty"
+    },
+    {
+        "name": "Crazy Joker",
+        "image": "Crazy Joker.webp",
+        "status": false,
+        "id": "j_crazy"
+    },
+    {
+        "name": "Credit Card",
+        "image": "Credit Card.webp",
+        "status": false,
+        "id": "j_credit_card"
+    },
+    {
+        "name": "Delayed Gratification",
+        "image": "Delayed Gratification.webp",
+        "status": false,
+        "id": "j_delayed_grat"
+    },
+    {
+        "name": "Devious Joker",
+        "image": "Devious Joker.webp",
+        "status": false,
+        "id": "j_devious"
+    },
+    {
+        "name": "Diet Cola",
+        "image": "Diet Cola.webp",
+        "status": false,
+        "id": "j_diet_cola"
+    },
+    {
+        "name": "DNA",
+        "image": "DNA.webp",
+        "status": false,
+        "id": "j_dna"
+    },
+    {
+        "name": "Driver's License",
+        "image": "Driver's License.webp",
+        "status": false,
+        "id": "j_drivers_license"
+    },
+    {
+        "name": "Droll Joker",
+        "image": "Droll Joker.webp",
+        "status": false,
+        "id": "j_droll"
+    },
+    {
+        "name": "Drunkard",
+        "image": "Drunkard.webp",
+        "status": false,
+        "id": "j_drunkard"
+    },
+    {
+        "name": "Dusk",
+        "image": "Dusk.webp",
+        "status": false,
+        "id": "j_dusk"
+    },
+    {
+        "name": "Egg",
+        "image": "Egg.webp",
+        "status": false,
+        "id": "j_egg"
+    },
+    {
+        "name": "Erosion",
+        "image": "Erosion.webp",
+        "status": false,
+        "id": "j_erosion"
+    },
+    {
+        "name": "Even Steven",
+        "image": "Even Steven.webp",
+        "status": false,
+        "id": "j_even_steven"
+    },
+    {
+        "name": "Faceless Joker",
+        "image": "Faceless Joker.webp",
+        "status": false,
+        "id": "j_faceless"
+    },
+    {
+        "name": "Fibonacci",
+        "image": "Fibonacci.webp",
+        "status": false,
+        "id": "j_fibonacci"
+    },
+    {
+        "name": "Flash Card",
+        "image": "Flash Card.webp",
+        "status": false,
+        "id": "j_flash"
+    },
+    {
+        "name": "Flower Pot",
+        "image": "Flower Pot.webp",
+        "status": false,
+        "id": "j_flower_pot"
+    },
+    {
+        "name": "Fortune Teller",
+        "image": "Fortune Teller.webp",
+        "status": false,
+        "id": "j_fortune_teller"
+    },
+    {
+        "name": "Four Fingers",
+        "image": "Four Fingers.webp",
+        "status": false,
+        "id": "j_four_fingers"
+    },
+    {
+        "name": "Gift Card",
+        "image": "Gift Card.webp",
+        "status": false,
+        "id": "j_gift"
+    },
+    {
+        "name": "Glass Joker",
+        "image": "Glass Joker.webp",
+        "status": false,
+        "id": "j_glass"
+    },
+    {
+        "name": "Gluttonous Joker",
+        "image": "Gluttonous Joker.webp",
+        "status": false,
+        "id": "j_gluttenous_joker"
+    },
+    {
+        "name": "Golden Joker",
+        "image": "Golden Joker.webp",
+        "status": false,
+        "id": "j_golden"
+    },
+    {
+        "name": "Golden Ticket",
+        "image": "Golden Ticket.webp",
+        "status": false,
+        "id": "j_ticket"
+    },
+    {
+        "name": "Greedy Joker",
+        "image": "Greedy Joker.webp",
+        "status": false,
+        "id": "j_greedy_joker"
+    },
+    {
+        "name": "Green Joker",
+        "image": "Green Joker.webp",
+        "status": false,
+        "id": "j_green_joker"
+    },
+    {
+        "name": "Gros Michel",
+        "image": "Gros Michel.webp",
+        "status": false,
+        "id": "j_gros_michel"
+    },
+    {
+        "name": "Hack",
+        "image": "Hack.webp",
+        "status": false,
+        "id": "j_hack"
+    },
+    {
+        "name": "Half Joker",
+        "image": "Half Joker.webp",
+        "status": false,
+        "id": "j_half"
+    },
+    {
+        "name": "Hallucination",
+        "image": "Hallucination.webp",
+        "status": false,
+        "id": "j_hallucination"
+    },
+    {
+        "name": "Hanging Chad",
+        "image": "Hanging Chad.webp",
+        "status": false,
+        "id": "j_hanging_chad"
+    },
+    {
+        "name": "Hiker",
+        "image": "Hiker.webp",
+        "status": false,
+        "id": "j_hiker"
+    },
+    {
+        "name": "Hit the Road",
+        "image": "Hit the Road.webp",
+        "status": false,
+        "id": "j_hit_the_road"
+    },
+    {
+        "name": "Hologram",
+        "image": "Hologram.webp",
+        "status": false,
+        "id": "j_hologram"
+    },
+    {
+        "name": "Ice Cream",
+        "image": "Ice Cream.webp",
+        "status": false,
+        "id": "j_ice_cream"
+    },
+    {
+        "name": "Invisible Joker",
+        "image": "Invisible Joker.webp",
+        "status": false,
+        "id": "j_invisible"
+    },
+    {
+        "name": "Joker",
+        "image": "Joker.webp",
+        "status": false,
+        "id": "j_joker"
+    },
+    {
+        "name": "Joker Stencil",
+        "image": "Joker Stencil.webp",
+        "status": false,
+        "id": "j_stencil"
+    },
+    {
+        "name": "Jolly Joker",
+        "image": "Jolly Joker.webp",
+        "status": false,
+        "id": "j_jolly"
+    },
+    {
+        "name": "Juggler",
+        "image": "Juggler.webp",
+        "status": false,
+        "id": "j_juggler"
+    },
+    {
+        "name": "Loyalty Card",
+        "image": "Loyalty Card.webp",
+        "status": false,
+        "id": "j_loyalty_card"
+    },
+    {
+        "name": "Luchador",
+        "image": "Luchador.webp",
+        "status": false,
+        "id": "j_luchador"
+    },
+    {
+        "name": "Lucky Cat",
+        "image": "Lucky Cat.webp",
+        "status": false,
+        "id": "j_lucky_cat"
+    },
+    {
+        "name": "Lusty Joker",
+        "image": "Lusty Joker.webp",
+        "status": false,
+        "id": "j_lusty_joker"
+    },
+    {
+        "name": "Mad Joker",
+        "image": "Mad Joker.webp",
+        "status": false,
+        "id": "j_mad"
+    },
+    {
+        "name": "Madness",
+        "image": "Madness.webp",
+        "status": false,
+        "id": "j_madness"
+    },
+    {
+        "name": "Mail-In Rebate",
+        "image": "Mail-In Rebate.webp",
+        "status": false,
+        "id": "j_mail"
+    },
+    {
+        "name": "Marble Joker",
+        "image": "Marble Joker.webp",
+        "status": false,
+        "id": "j_marble"
+    },
+    {
+        "name": "Matador",
+        "image": "Matador.webp",
+        "status": false,
+        "id": "j_matador"
+    },
+    {
+        "name": "Merry Andy",
+        "image": "Merry Andy.webp",
+        "status": false,
+        "id": "j_merry_andy"
+    },
+    {
+        "name": "Midas Mask",
+        "image": "Midas Mask.webp",
+        "status": false,
+        "id": "j_midas_mask"
+    },
+    {
+        "name": "Mime",
+        "image": "Mime.webp",
+        "status": false,
+        "id": "j_mime"
+    },
+    {
+        "name": "Misprint",
+        "image": "Misprint.webp",
+        "status": false,
+        "id": "j_misprint"
+    },
+    {
+        "name": "Mr. Bones",
+        "image": "Mr. Bones.webp",
+        "status": false,
+        "id": "j_mr_bones"
+    },
+    {
+        "name": "Mystic Summit",
+        "image": "Mystic Summit.webp",
+        "status": false,
+        "id": "j_mystic_summit"
+    },
+    {
+        "name": "Obelisk",
+        "image": "Obelisk.webp",
+        "status": false,
+        "id": "j_obelisk"
+    },
+    {
+        "name": "Odd Todd",
+        "image": "Odd Todd.webp",
+        "status": false,
+        "id": "j_odd_todd"
+    },
+    {
+        "name": "Onyx Agate",
+        "image": "Onyx Agate.webp",
+        "status": false,
+        "id": "j_onyx_agate"
+    },
+    {
+        "name": "Oops! All 6s",
+        "image": "Oops! All 6s.webp",
+        "status": false,
+        "id": "j_oops"
+    },
+    {
+        "name": "Pareidolia",
+        "image": "Pareidolia.webp",
+        "status": false,
+        "id": "j_pareidolia"
+    },
+    {
+        "name": "Perkeo",
+        "image": "Perkeo.webp",
+        "status": false,
+        "id": "j_perkeo"
+    },
+    {
+        "name": "Photograph",
+        "image": "Photograph.webp",
+        "status": false,
+        "id": "j_photograph"
+    },
+    {
+        "name": "Popcorn",
+        "image": "Popcorn.webp",
+        "status": false,
+        "id": "j_popcorn"
+    },
+    {
+        "name": "Raised Fist",
+        "image": "Raised Fist.webp",
+        "status": false,
+        "id": "j_raised_fist"
+    },
+    {
+        "name": "Ramen",
+        "image": "Ramen.webp",
+        "status": false,
+        "id": "j_ramen"
+    },
+    {
+        "name": "Red Card",
+        "image": "Red Card.webp",
+        "status": false,
+        "id": "j_red_card"
+    },
+    {
+        "name": "Reserved Parking",
+        "image": "Reserved Parking.webp",
+        "status": false,
+        "id": "j_reserved_parking"
+    },
+    {
+        "name": "Ride the Bus",
+        "image": "Ride the Bus.webp",
+        "status": false,
+        "id": "j_ride_the_bus"
+    },
+    {
+        "name": "Riff-Raff",
+        "image": "Riff-Raff.webp",
+        "status": false,
+        "id": "j_riff_raff"
+    },
+    {
+        "name": "Rocket",
+        "image": "Rocket.webp",
+        "status": false,
+        "id": "j_rocket"
+    },
+    {
+        "name": "Rough Gem",
+        "image": "Rough Gem.webp",
+        "status": false,
+        "id": "j_rough_gem"
+    },
+    {
+        "name": "Runner",
+        "image": "Runner.webp",
+        "status": false,
+        "id": "j_runner"
+    },
+    {
+        "name": "Satellite",
+        "image": "Satellite.webp",
+        "status": false,
+        "id": "j_satellite"
+    },
+    {
+        "name": "Scary Face",
+        "image": "Scary Face.webp",
+        "status": false,
+        "id": "j_scary_face"
+    },
+    {
+        "name": "Scholar",
+        "image": "Scholar.webp",
+        "status": false,
+        "id": "j_scholar"
+    },
+    {
+        "name": "S\u00e9ance",
+        "image": "S\u00e9ance.webp",
+        "status": false,
+        "id": "j_seance"
+    },
+    {
+        "name": "Seeing Double",
+        "image": "Seeing Double.webp",
+        "status": false,
+        "id": "j_seeing_double"
+    },
+    {
+        "name": "Seltzer",
+        "image": "Seltzer.webp",
+        "status": false,
+        "id": "j_selzer"
+    },
+    {
+        "name": "Shoot the Moon",
+        "image": "Shoot the Moon.webp",
+        "status": false,
+        "id": "j_shoot_the_moon"
+    },
+    {
+        "name": "Shortcut",
+        "image": "Shortcut.webp",
+        "status": false,
+        "id": "j_shortcut"
+    },
+    {
+        "name": "Showman",
+        "image": "Showman.webp",
+        "status": false,
+        "id": "j_ring_master"
+    },
+    {
+        "name": "Sixth Sense",
+        "image": "Sixth Sense.webp",
+        "status": false,
+        "id": "j_sixth_sense"
+    },
+    {
+        "name": "Sly Joker",
+        "image": "Sly Joker.webp",
+        "status": false,
+        "id": "j_sly"
+    },
+    {
+        "name": "Smeared Joker",
+        "image": "Smeared Joker.webp",
+        "status": false,
+        "id": "j_smeared"
+    },
+    {
+        "name": "Smiley Face",
+        "image": "Smiley Face.webp",
+        "status": false,
+        "id": "j_smiley"
+    },
+    {
+        "name": "Sock and Buskin",
+        "image": "Sock and Buskin.webp",
+        "status": false,
+        "id": "j_sock_and_buskin"
+    },
+    {
+        "name": "Space Joker",
+        "image": "Space Joker.webp",
+        "status": false,
+        "id": "j_space"
+    },
+    {
+        "name": "Spare Trousers",
+        "image": "Spare Trousers.webp",
+        "status": false,
+        "id": "j_trousers"
+    },
+    {
+        "name": "Splash",
+        "image": "Splash.webp",
+        "status": false,
+        "id": "j_splash"
+    },
+    {
+        "name": "Square Joker",
+        "image": "Square Joker.webp",
+        "status": false,
+        "id": "j_square"
+    },
+    {
+        "name": "Steel Joker",
+        "image": "Steel Joker.webp",
+        "status": false,
+        "id": "j_steel_joker"
+    },
+    {
+        "name": "Stone Joker",
+        "image": "Stone Joker.webp",
+        "status": false,
+        "id": "j_stone"
+    },
+    {
+        "name": "Stuntman",
+        "image": "Stuntman.webp",
+        "status": false,
+        "id": "j_stuntman"
+    },
+    {
+        "name": "Supernova",
+        "image": "Supernova.webp",
+        "status": false,
+        "id": "j_supernova"
+    },
+    {
+        "name": "Superposition",
+        "image": "Superposition.webp",
+        "status": false,
+        "id": "j_superposition"
+    },
+    {
+        "name": "Swashbuckler",
+        "image": "Swashbuckler.webp",
+        "status": false,
+        "id": "j_swashbuckler"
+    },
+    {
+        "name": "The Duo",
+        "image": "The Duo.webp",
+        "status": false,
+        "id": "j_duo"
+    },
+    {
+        "name": "The Family",
+        "image": "The Family.webp",
+        "status": false,
+        "id": "j_family"
+    },
+    {
+        "name": "The Idol",
+        "image": "The Idol.webp",
+        "status": false,
+        "id": "j_idol"
+    },
+    {
+        "name": "The Order",
+        "image": "The Order.webp",
+        "status": false,
+        "id": "j_order"
+    },
+    {
+        "name": "The Tribe",
+        "image": "The Tribe.webp",
+        "status": false,
+        "id": "j_tribe"
+    },
+    {
+        "name": "The Trio",
+        "image": "The Trio.webp",
+        "status": false,
+        "id": "j_trio"
+    },
+    {
+        "name": "Throwback",
+        "image": "Throwback.webp",
+        "status": false,
+        "id": "j_throwback"
+    },
+    {
+        "name": "To Do List",
+        "image": "To Do List.webp",
+        "status": false,
+        "id": "j_todo_list"
+    },
+    {
+        "name": "To the Moon",
+        "image": "To the Moon.webp",
+        "status": false,
+        "id": "j_to_the_moon"
+    },
+    {
+        "name": "Trading Card",
+        "image": "Trading Card.webp",
+        "status": false,
+        "id": "j_trading"
+    },
+    {
+        "name": "Triboulet",
+        "image": "Triboulet.webp",
+        "status": false,
+        "id": "j_triboulet"
+    },
+    {
+        "name": "Troubadour",
+        "image": "Troubadour.webp",
+        "status": false,
+        "id": "j_troubadour"
+    },
+    {
+        "name": "Turtle Bean",
+        "image": "Turtle Bean.webp",
+        "status": false,
+        "id": "j_turtle_bean"
+    },
+    {
+        "name": "Vagabond",
+        "image": "Vagabond.webp",
+        "status": false,
+        "id": "j_vagabond"
+    },
+    {
+        "name": "Vampire",
+        "image": "Vampire.webp",
+        "status": false,
+        "id": "j_vampire"
+    },
+    {
+        "name": "Walkie Talkie",
+        "image": "Walkie Talkie.webp",
+        "status": false,
+        "id": "j_walkie_talkie"
+    },
+    {
+        "name": "Wee Joker",
+        "image": "Wee Joker.webp",
+        "status": false,
+        "id": "j_wee"
+    },
+    {
+        "name": "Wily Joker",
+        "image": "Wily Joker.webp",
+        "status": false,
+        "id": "j_wily"
+    },
+    {
+        "name": "Wrathful Joker",
+        "image": "Wrathful Joker.webp",
+        "status": false,
+        "id": "j_wrathful_joker"
+    },
+    {
+        "name": "Yorick",
+        "image": "Yorick.webp",
+        "status": false,
+        "id": "j_yorick"
+    },
+    {
+        "name": "Zany Joker",
+        "image": "Zany Joker.webp",
+        "status": false,
+        "id": "j_zany"
+    }
 ]

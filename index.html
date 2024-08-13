@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" type="text/css" href="./static/style.css">
     <link rel="stylesheet" type="text/css" href="./static/button-magic.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
     <script src="./static/scripts.js"> </script>
     <title>Completionist++ Tracker</title>
 </head>
@@ -30,6 +32,8 @@
             <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="container text-center">
+                        <label for="profileInput" class="btn btn-primary mb-2 button-pixelated pixel-corners">Import Profile</label>
+                        <input id="profileInput" type="file" style="display: none" accept=".jkr">
                         <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="setAllState(true)">Add All Stickers</button>
                         <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="setAllState(false)">Remove All Stickers</button>
                     </div>
