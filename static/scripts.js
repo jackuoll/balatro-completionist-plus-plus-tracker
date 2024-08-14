@@ -27,16 +27,16 @@ function generateJokerGrid(jokers) {
     const container = document.getElementById('joker-grid');
 
     jokers.forEach(joker => {
-        const jokerState = localStorage.getItem('card:' + joker.name) === 'true';
+        const jokerState = localStorage.getItem('card:' + joker.id) === 'true';
 
         const jokerHtml = `
             <div class="joker-container col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
-                <div class="card pixel-corners h-100" id="${joker.name}" onclick="handleCardClick(this)">
+                <div class="card pixel-corners h-100" id="${joker.id}" onclick="handleCardClick(this)">
                     <div class="card-body">
                         <img src="${staticDir}jokers/${joker.image}" alt="${joker.name}" class="card-img-bottom">
                         <div class="form-check py-1">
-                            <input type="checkbox" id="${joker.name}.checkbox" ${jokerState ? 'checked' : ''} onchange="updateView()">
-                            <label for="${joker.name}.checkbox" class="custom-checkbox">${joker.name}</label>
+                            <input type="checkbox" id="${joker.id}.checkbox" ${jokerState ? 'checked' : ''} onchange="updateView()">
+                            <label for="${joker.id}.checkbox" class="custom-checkbox">${joker.name}</label>
                         </div>
                     </div>
                 </div>
@@ -201,4 +201,81 @@ function highlightButton(button) {
 function setDefaultView() {
     const showAllButton = document.getElementById('showAllButton');
     showAll(showAllButton);
+}
+
+
+// ---- profile handling ----
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('profileInput').addEventListener('change', async function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            try {
+                const decompressedData = await decompressFile(file);
+                const saveData = parseObj(decompressedData);
+                console.log(saveData);
+                const jokers = prepareJokerData(saveData);
+                console.log(jokers);
+                setStatsFromProfile(jokers);
+            } catch (err) {
+                console.error('Decompression failed:', err);
+                alert('Error, check the console');
+            }
+        }
+    });
+});
+
+function decompressFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const arrayBuffer = e.target.result;
+                const uint8Array = new Uint8Array(arrayBuffer);
+                const decompressedData = pako.inflateRaw(uint8Array);
+                const decodedData = new TextDecoder().decode(decompressedData);
+                resolve(decodedData); // Возвращаем распакованные данные
+            } catch (err) {
+                reject(err); // Возвращаем ошибку
+            }
+        };
+        reader.onerror = function(err) {
+            reject(err);
+        };
+        reader.readAsArrayBuffer(file);
+    });
+}
+
+function parseObj(data){
+    let result = data.slice(7)
+        .replace(/\[/g, "")
+        .replace(/\]/g, "")
+        .replace(/=/g, ":")
+        .replace(/,}/g, "}")
+        .replace(/(\d+):/g, (match, p1) => `"${p1}":`);
+    return JSON.parse(result);
+}
+
+function prepareJokerData(data){
+    let jokers = {};
+    for (const [jId, playInfo] of Object.entries(data['joker_usage'])) {
+        jokers[jId] = playInfo['wins']['8'] != null;
+    }
+    return jokers;
+}
+
+function setStatsFromProfile(jokers){
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const state = jokers[card.id] === true;
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        checkbox.checked = state
+        localStorage.setItem('card:' + card.id, checkbox.checked);
+
+        const event = new Event('change', {
+            bubbles: true,
+            cancelable: true
+        });
+        checkbox.dispatchEvent(event);
+   });
+    updateStats();
 }

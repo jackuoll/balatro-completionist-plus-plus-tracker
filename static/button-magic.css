@@ -99,3 +99,7 @@
 .pixel-corners:hover::after {
   background: black;
 }
+
+.progress.pixel-corners:hover::after {
+  background: #4C8F6E;
+}
