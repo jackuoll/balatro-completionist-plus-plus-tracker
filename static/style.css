@@ -85,6 +85,17 @@ h1 {
     transition: margin-bottom 0.2s, padding-top 0.2s;
 }
 
+.sticky-top.sticky-active .title-row {
+    display: none;
+}
+
+@media (min-width: 576px) {
+    .sticky-top.sticky-active .title-row {
+        display: flex;
+    }
+}
+
+
 .sticky-top {
     transition: background-color 0.2s;
 }

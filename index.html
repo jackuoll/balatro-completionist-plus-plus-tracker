@@ -7,9 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='button-magic.css') }}">
-    <script src="{{ url_for('static', filename='scripts.js') }}"> </script>
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+    <link rel="stylesheet" type="text/css" href="./static/button-magic.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
+    <script src="./static/scripts.js"> </script>
     <title>Completionist++ Tracker</title>
 </head>
 
@@ -17,7 +19,7 @@
     <div class="container-fluid sticky-top header">
         <div class="row mb-5 pb-2 pt-5">
             <div class="col-12 col-sm-6 mb-3 mb-md-0 d-flex flex-column text-center justify-content-center">
-                <div class="row">
+                <div class="row title-row">
                     <h1>Completionist++</h1>
                 </div>
                 <div class="row mx-4 mb-1">
@@ -30,8 +32,10 @@
             <div class="col-12 col-sm-6 d-flex justify-content-center align-items-center">
                 <div class="row">
                     <div class="container text-center">
-                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="handleButtonClickWithRequest('/add_all_gold_stickers', 'addAll')">Add All Stickers</button>
-                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="handleButtonClickWithRequest('/remove_all_gold_stickers', 'removeAll')">Remove All Stickers</button>
+                        <label for="profileInput" class="btn btn-primary mb-2 button-pixelated pixel-corners">Import Profile</label>
+                        <input id="profileInput" type="file" style="display: none" accept=".jkr">
+                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="setAllState(true)">Add All Stickers</button>
+                        <button class="btn btn-primary mb-2 button-pixelated pixel-corners" onclick="setAllState(false)">Remove All Stickers</button>
                     </div>
                     <div class="container text-center filter-group">
                         <input type="radio" class="btn-check" name="filters" id="filter-stickers-only" autocomplete="off" onchange="filterStickers(this)">
@@ -49,20 +53,8 @@
     </div>
 
     <div id="cards-container" class="container-fluid px-sm-5">
-        <div class="row">
-            {% for joker in jokers %}
-            <div class="joker-container col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
-                <div class="card pixel-corners h-100" id="{{ joker.name }}" onclick="handleCardClick(this)">
-                    <div class="card-body">
-                        <img src="{{ url_for('static', filename='jokers/' + joker.name) }}.webp" alt="{{ joker.name }}" class="card-img-bottom">
-                        <div class="form-check py-1">
-                            <input type="checkbox" id="{{ joker.name }}.checkbox" {% if joker.status == 'gold sticker' %} checked {% endif %} onchange=updateView()>
-                            <label for="{{ joker.name }}.checkbox" class="custom-checkbox">{{ joker.name }}</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+        <div id="joker-grid" class="row">
+
         </div>
     </div>
 </body>

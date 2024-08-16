@@ -1,10 +1,14 @@
 let currentView = 'all';
 let currentActiveButton = null;
+const staticDir = "./static/";
+let totalJokers = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-    setDefaultView();
-    updateStats();
-    makeJokerImageClickable();
+    initPage()
+        .then(() => {
+            setDefaultView();
+            updateStats();
+        });
 });
 
  window.addEventListener('scroll', function() {
@@ -18,79 +22,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function makeJokerImageClickable() {
-    const jokerContainers = document.querySelectorAll('.joker-container');
-    jokerContainers.forEach(container => {
-        const checkbox = container.querySelector('input[type="checkbox"]');
-        const image = container.querySelector('.joker-image');
 
-        if (checkbox && image) {
-            image.addEventListener('click', () => {
-                checkbox.checked = !checkbox.checked;
-                handleCheckboxClick(checkbox);
-                updateView();
-            });
-        }
+function generateJokerGrid(jokers) {
+    const container = document.getElementById('joker-grid');
+
+    jokers.forEach(joker => {
+        const jokerState = localStorage.getItem('card:' + joker.id) === 'true';
+
+        const jokerHtml = `
+            <div class="joker-container col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+                <div class="card pixel-corners h-100" id="${joker.id}" onclick="handleCardClick(this)">
+                    <div class="card-body">
+                        <img src="${staticDir}jokers/${joker.image}" alt="${joker.name}" class="card-img-bottom">
+                        <div class="form-check py-1">
+                            <input type="checkbox" id="${joker.id}.checkbox" ${jokerState ? 'checked' : ''} onchange="updateView()">
+                            <label for="${joker.id}.checkbox" class="custom-checkbox">${joker.name}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.innerHTML += jokerHtml;
     });
 }
 
-function handleCheckboxClick(checkbox) {
-    const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
-
-    fetch('/change_joker_status', {
-        method: 'POST',
+function initPage() {
+    return fetch(staticDir + "jokers.json", {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            joker_name: checkbox.name,
-            status: status
-        })
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Response from backend was not ok');
+            throw new Error('Getting joker list error');
         }
         return response.json();
     })
     .then(data => {
-        console.log('Success:', data);
-        updateStats();
+        totalJokers = data.length;
+        // console.log('Success:', data);
+        generateJokerGrid(data);
     })
     .catch((error) => {
         console.error('Error:', error);
         alert('Error, check the console');
-    });
+   });
 }
 function handleCardClick(card) {
     const checkbox = card.querySelector('input[type="checkbox"]');
     checkbox.checked = !checkbox.checked
-    const status = checkbox.checked ? 'gold sticker' : 'no gold sticker';
+    localStorage.setItem('card:' + card.id, checkbox.checked);
+    updateStats();
 
-    fetch('/change_joker_status', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            joker_name: card.id,
-            status: status
-        })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Response from backend was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-        updateStats();
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Error, check the console');
-    });
     const event = new Event('change', {
         bubbles: true,
         cancelable: true
@@ -99,10 +83,9 @@ function handleCardClick(card) {
 }
 
 function updateStats() {
-    const totalJokers = 150;
-
     const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
     const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+    console.log(totalJokers);
     const percentage = ((checkedCount / totalJokers) * 100).toFixed(2);
 
     const statsElement = document.getElementById("stats");
@@ -115,32 +98,20 @@ function updateStats() {
     console.log("Updated Stats:", statsElement.textContent);
 }
 
-function handleButtonClickWithRequest(url, action) {
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Response from backend was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-        if (action === 'addAll') {
-            addAllStickers();
-        } else if (action === 'removeAll') {
-            removeAllStickers();
-        }
-        highlightButton(currentActiveButton);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Error, check the console');
+function setAllState(state) {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        checkbox.checked = state
+        localStorage.setItem('card:' + card.id, checkbox.checked);
+
+        const event = new Event('change', {
+            bubbles: true,
+            cancelable: true
+        });
+        checkbox.dispatchEvent(event);
    });
+    updateStats();
 }
 
 function updateView() {
@@ -227,29 +198,84 @@ function highlightButton(button) {
     }
 }
 
-function addAllStickers() {
-    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-        if (!checkbox.checked) {
-            checkbox.checked = true;
-        }
-    });
-    updateStats();
-    updateView();
-}
-
-function removeAllStickers() {
-    const checkboxes = document.querySelectorAll('.joker-container input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            checkbox.checked = false;
-        }
-    });
-    updateStats();
-    updateView();
-}
-
 function setDefaultView() {
     const showAllButton = document.getElementById('showAllButton');
     showAll(showAllButton);
+}
+
+
+// ---- profile handling ----
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('profileInput').addEventListener('change', async function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            try {
+                const decompressedData = await decompressFile(file);
+                const saveData = parseObj(decompressedData);
+                console.log(saveData);
+                const jokers = prepareJokerData(saveData);
+                console.log(jokers);
+                setStatsFromProfile(jokers);
+            } catch (err) {
+                console.error('Decompression failed:', err);
+                alert('Error, check the console');
+            }
+        }
+    });
+});
+
+function decompressFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const arrayBuffer = e.target.result;
+                const uint8Array = new Uint8Array(arrayBuffer);
+                const decompressedData = pako.inflateRaw(uint8Array);
+                const decodedData = new TextDecoder().decode(decompressedData);
+                resolve(decodedData); // Возвращаем распакованные данные
+            } catch (err) {
+                reject(err); // Возвращаем ошибку
+            }
+        };
+        reader.onerror = function(err) {
+            reject(err);
+        };
+        reader.readAsArrayBuffer(file);
+    });
+}
+
+function parseObj(data){
+    let result = data.slice(7)
+        .replace(/\[/g, "")
+        .replace(/\]/g, "")
+        .replace(/=/g, ":")
+        .replace(/,}/g, "}")
+        .replace(/(\d+):/g, (match, p1) => `"${p1}":`);
+    return JSON.parse(result);
+}
+
+function prepareJokerData(data){
+    let jokers = {};
+    for (const [jId, playInfo] of Object.entries(data['joker_usage'])) {
+        jokers[jId] = playInfo['wins']['8'] != null;
+    }
+    return jokers;
+}
+
+function setStatsFromProfile(jokers){
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const state = jokers[card.id] === true;
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        checkbox.checked = state
+        localStorage.setItem('card:' + card.id, checkbox.checked);
+
+        const event = new Event('change', {
+            bubbles: true,
+            cancelable: true
+        });
+        checkbox.dispatchEvent(event);
+   });
+    updateStats();
 }

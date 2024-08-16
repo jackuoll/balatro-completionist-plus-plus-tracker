@@ -4,47 +4,25 @@
 
 This application helps you track your progress towards the hardest Balatro achievement, **Completionist++**.
 
-Basically, you can manage and track your gold stickers on a web page. The features include viewing all jokers, adding or removing gold stickers for a specific joker or all jokers, and filtering jokers based on their gold sticker status. Additionally, you can see the total number and percentage of jokers with gold stickers.
 
-Your progress is stored in a **SQLite** database. The backend is built using **Flask**, while the web page functionalities are handled by **JavaScript**.
+## Features
 
+- View all the game's jokers in a grid format.
+- Track which golden stickers you already have and which ones are missing.
+- Add or remove gold stickers for a specific joker or all jokers.
+- Filter jokers based on their gold sticker status.
+- Import your game's profile to update your current gold stickers.
+- No external backend; everything is handled by JavaScript in your browser.
+- Save your progress using the browser's local storage.
 
-## Installation and running
-
-### Default way:
-#### Linux/MacOS:
-
-```bash
-git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
-cd balatro-completionist-plus-plus-tracker
-chmod +x run.sh
-# you need to have python installed on your system
-./run.sh # create venv and install python dependencies, run the application
-
-# or just click Code -> Download ZIP. Unpack the archive and execute run.sh
-```
-
-#### Windows:
-```shell
-git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
-cd balatro-completionist-plus-plus-tracker
-# you need to have python installed on your system
-run.bat # create venv and install python dependencies, run the application
-
-# or just click Code -> Download ZIP. Unpack the archive and execute run.bat
-```
-After you run the script the first time to set up the venv and install dependencies, future runs will just start the application.
-
-### Docker way:
-
-```bash
-git clone https://github.com/blackfan321/balatro-completionist-plus-plus-tracker.git
-cd balatro-completionist-plus-plus-tracker
-docker compose up -d
-
-# the sqlite volume path: ./data
-```
 
 
 ## Usage
-Just open https://localhost:5000 in your browser. I tested the application in a chromium-based browser and Safari, not sure about how it works in Firefox. 
+Open https://blackfan321.github.io/balatro-completionist-plus-plus-tracker, then import your game's profile. 
+Alternatively, you can clone this repo and open index.html locally.
+
+
+## Plans
+- Add i18n support using in-game joker translations.
+- Improve the frontend.
+- Add Dockerfile and docker deploying insructions.
