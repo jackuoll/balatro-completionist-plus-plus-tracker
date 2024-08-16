@@ -25,4 +25,4 @@ Alternatively, you can clone this repo and open index.html locally.
 ## Plans
 - Add i18n support using in-game joker translations.
 - Improve the frontend.
-- Add Dockerfile and docker deploying insructions.
+- Add Dockerfile and docker deploying instructions.
