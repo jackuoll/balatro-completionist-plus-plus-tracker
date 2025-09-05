@@ -194,7 +194,7 @@ input[type="checkbox"]:checked + .custom-checkbox::before {
 .joker-tooltip {
     position: absolute;
     z-index: 1000;
-    background-color: #666666;
+    background-color: rgb(52, 62, 63);
     border: 2px solid #333333;
     border-radius: 8px;
     padding: 8px;
@@ -211,11 +211,40 @@ input[type="checkbox"]:checked + .custom-checkbox::before {
 
 .tooltip-title {
     color: white;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 24px;
     margin-bottom: 6px;
     text-shadow: 0.1rem 0.1rem 0px #000000;
     text-align: center;
+}
+
+.tooltip-rarity {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 6px;
+    text-align: center;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-shadow: 0.1rem 0.1rem 0px #000000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.tooltip-rarity.rarity-1 {
+    background-color: #009dff; /* Common - Blue */
+}
+
+.tooltip-rarity.rarity-2 {
+    background-color: #4BC292; /* Uncommon - Green */
+}
+
+.tooltip-rarity.rarity-3 {
+    background-color: #fe5f55; /* Rare - Red */
+}
+
+.tooltip-rarity.rarity-4 {
+    background-color: #b26cbb; /* Legendary - Purple */
 }
 
 .tooltip-description {
@@ -227,6 +256,11 @@ input[type="checkbox"]:checked + .custom-checkbox::before {
     line-height: 1.3;
     text-shadow: none;
     text-align: center;
+    min-width: 200px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Balatro Joker Description Styles - Tooltip specific only */

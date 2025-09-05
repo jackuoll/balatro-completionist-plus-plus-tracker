@@ -28,7 +28,7 @@
         "image": "Ancient Joker.webp",
         "status": false,
         "id": "j_ancient",
-        "description": "<div class=\"joker-description\">Each played card with<br><span class=\"variable\">Hearts</span> suit gives<br><span class=\"x-mult c-red c-white\"> X1.5 </span> Mult when scored,<br><span class=\"size-0-8\">suit changes at end of round</span></div>",
+        "description": "<div class=\"joker-description\">Each played card with<br><span class=\"variable\">[random suit]</span> suit gives<br><span class=\"x-mult c-red c-white\"> X1.5 </span> Mult when scored,<br><span class=\"size-0-8\">suit changes at end of round</span></div>",
         "rarity": 3
     },
     {
@@ -92,7 +92,7 @@
         "image": "Blue Joker.webp",
         "status": false,
         "id": "j_blue_joker",
-        "description": "<div class=\"joker-description\"><span class=\"c-chips\">+2</span> Chips for each<br>remaining card in <span class=\"c-attention\">deck</span><br><span class=\"c-inactive\">(Currently </span><span class=\"c-chips\">+52</span><span class=\"c-inactive\"> Chips)</span></div>",
+        "description": "<div class=\"joker-description\"><span class=\"c-chips\">+2</span> Chips for each<br>remaining card in <span class=\"c-attention\">deck</span><br><span class=\"c-inactive\">(Currently </span><span class=\"c-chips\">+104</span><span class=\"c-inactive\"> Chips)</span></div>",
         "rarity": 1
     },
     {
@@ -188,7 +188,7 @@
         "image": "Castle.webp",
         "status": false,
         "id": "j_castle",
-        "description": "<div class=\"joker-description\">This Joker gains <span class=\"c-chips\">+3</span> Chips<br>per discarded <span class=\"variable\">Hearts</span> card,<br>suit changes every round<br><span class=\"c-inactive\">(Currently </span><span class=\"c-chips\">+0</span><span class=\"c-inactive\"> Chips)</span></div>",
+        "description": "<div class=\"joker-description\">This Joker gains <span class=\"c-chips\">+3</span> Chips<br>per discarded <span class=\"variable\">[random owned suit]</span> card,<br>suit changes every round<br><span class=\"c-inactive\">(Currently </span><span class=\"c-chips\">+0</span><span class=\"c-inactive\"> Chips)</span></div>",
         "rarity": 2
     },
     {
