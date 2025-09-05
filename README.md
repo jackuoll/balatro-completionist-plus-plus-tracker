@@ -18,7 +18,7 @@ This application helps you track your progress towards the hardest Balatro achie
 
 
 ## Usage
-Open https://blackfan321.github.io/balatro-completionist-plus-plus-tracker, then import your game's profile. 
+Open https://jackuoll.github.io/balatro-completionist-plus-plus-tracker, then import your game's profile. 
 Alternatively, you can clone this repo and open index.html locally.
 
 
