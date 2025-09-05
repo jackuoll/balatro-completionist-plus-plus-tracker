@@ -74,6 +74,7 @@ function initPage() {
         totalJokers = data.length;
         // console.log('Success:', data);
         generateJokerGrid(data);
+        setupTooltipEvents(); // Set up tooltip event listeners
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -323,7 +324,7 @@ function setupTooltipEvents() {
             }
             // If tooltip is already showing, update its position
             if (tooltip.classList.contains('show')) {
-                updateTooltipPosition(e);
+                updateTooltipPosition(e.clientX, e.clientY);
             }
         } else {
             clearTooltipTimer();
@@ -384,41 +385,8 @@ function showTooltip(card) {
     tooltip.querySelector('.tooltip-description').innerHTML = jokerData.description;
     
     // Position and show tooltip using stored mouse position
-    updateTooltipPositionFromCoords(currentMousePosition.x, currentMousePosition.y);
+    updateTooltipPosition(currentMousePosition.x, currentMousePosition.y);
     tooltip.classList.add('show');
-}
-
-function updateTooltipPositionFromCoords(mouseX, mouseY) {
-    const tooltip = document.getElementById('joker-tooltip');
-    const offset = 15;
-    
-    // Get tooltip dimensions
-    const tooltipRect = tooltip.getBoundingClientRect();
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    
-    // Center the tooltip horizontally under the cursor (accounting for scroll)
-    let left = mouseX - (tooltipRect.width / 2);
-    let top = mouseY + offset;
-    
-    // Adjust horizontal position if tooltip would go off screen
-    // Keep it as close to centered as possible while staying on screen
-    if (left < 5) {
-        left = 5;
-    } else if (left + tooltipRect.width > windowWidth - 5) {
-        left = windowWidth - tooltipRect.width - 5;
-    }
-    
-    // Adjust vertical position if tooltip would go off screen
-    if (top + tooltipRect.height > windowHeight - 5) {
-        top = mouseY - tooltipRect.height - offset;
-    }
-    
-    // Ensure tooltip doesn't go off the top edge
-    top = Math.max(5, top);
-    
-    tooltip.style.left = `${left}px`;
-    tooltip.style.top = `${top}px`;
 }
 
 function hideTooltip() {
@@ -426,10 +394,8 @@ function hideTooltip() {
     tooltip.classList.remove('show');
 }
 
-function updateTooltipPosition(event) {
+function updateTooltipPosition(mouseX, mouseY) {
     const tooltip = document.getElementById('joker-tooltip');
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
     const offset = 15;
     
     // Get tooltip dimensions
@@ -457,8 +423,8 @@ function updateTooltipPosition(event) {
     // Ensure tooltip doesn't go off the top edge
     top = Math.max(5, top);
     
-    // Apply positioning with scroll offset
-    tooltip.style.left = left + 'px';
-    tooltip.style.top = top + 'px';
-    tooltip.style.position = 'fixed'; // Use fixed positioning relative to viewport
+    // Apply positioning with fixed positioning relative to viewport
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${top}px`;
+    tooltip.style.position = 'fixed';
 }
