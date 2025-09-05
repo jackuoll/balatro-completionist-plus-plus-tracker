@@ -1052,7 +1052,7 @@
         "image": "The Idol.webp",
         "status": false,
         "id": "j_idol",
-        "description": "<div class=\"joker-description\">Each played <span class=\"c-attention\">2</span><br>of <span class=\"variable\">Spades</span> gives<br><span class=\"x-mult c-red c-white\"> X2 </span> Mult when scored<br><span class=\"size-0-8\">Card changes every round</span></div>",
+        "description": "<div class=\"joker-description\">Each played <span class=\"c-attention\">[random owned rank]</span><br>of <span class=\"variable\">[random owned suit]</span> gives<br><span class=\"x-mult c-red c-white\"> X2 </span> Mult when scored<br><span class=\"size-0-8\">Card changes every round</span></div>",
         "rarity": 2
     },
     {
