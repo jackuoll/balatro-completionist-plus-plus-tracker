@@ -2,12 +2,14 @@ let currentView = 'all';
 let currentActiveButton = null;
 const staticDir = "./static/";
 let totalJokers = 0;
+let jokersData = {};
 
 document.addEventListener('DOMContentLoaded', () => {
     initPage()
         .then(() => {
             setDefaultView();
             updateStats();
+            initTooltips();
         });
 });
 
@@ -20,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         stickyHeader.classList.remove('sticky-active');
     }
+    
+    // Hide tooltip when scrolling
+    hideTooltip();
 });
 
 
@@ -61,6 +66,13 @@ function initPage() {
     })
     .then(data => {
         totalJokers = data.length;
+        
+        // Store jokers data for tooltip lookup
+        jokersData = {};
+        data.forEach(joker => {
+            jokersData[joker.id] = joker;
+        });
+        
         // console.log('Success:', data);
         generateJokerGrid(data);
     })
@@ -69,6 +81,96 @@ function initPage() {
         alert('Error, check the console');
    });
 }
+
+function initTooltips() {
+    const tooltip = document.getElementById('joker-tooltip');
+    console.log('Initializing tooltips...');
+    
+    // Add hover listeners to all joker cards
+    document.addEventListener('mouseover', function(e) {
+        const card = e.target.closest('.card');
+        if (card && card.id) {
+            console.log('Hovering over card:', card.id);
+            showTooltip(card, e);
+        }
+    });
+    
+    document.addEventListener('mouseout', function(e) {
+        const card = e.target.closest('.card');
+        if (card && card.id) {
+            hideTooltip();
+        }
+    });
+    
+    document.addEventListener('mousemove', function(e) {
+        const card = e.target.closest('.card');
+        if (card && card.id && tooltip.classList.contains('show')) {
+            updateTooltipPosition(e);
+        }
+    });
+}
+
+function showTooltip(card, event) {
+    const tooltip = document.getElementById('joker-tooltip');
+    
+    // Get joker data directly using the card ID
+    const jokerData = jokersData[card.id];
+    
+    if (!jokerData) {
+        console.warn('No joker data found for:', card.id);
+        return;
+    }
+    
+    // Update tooltip content
+    tooltip.querySelector('.tooltip-title').textContent = jokerData.name;
+    tooltip.querySelector('.tooltip-description').innerHTML = jokerData.description;
+    
+    // Position and show tooltip
+    updateTooltipPosition(event);
+    tooltip.classList.add('show');
+}
+
+function hideTooltip() {
+    const tooltip = document.getElementById('joker-tooltip');
+    tooltip.classList.remove('show');
+}
+
+function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('joker-tooltip');
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+    const offset = 15;
+    
+    // Get tooltip dimensions
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    
+    // Center the tooltip horizontally under the cursor (accounting for scroll)
+    let left = mouseX - (tooltipRect.width / 2);
+    let top = mouseY + offset;
+    
+    // Adjust horizontal position if tooltip would go off screen
+    if (left < 5) {
+        left = 5;
+    } else if (left + tooltipRect.width > windowWidth - 5) {
+        left = windowWidth - tooltipRect.width - 5;
+    }
+    
+    // Adjust vertical position if tooltip would go off screen
+    if (top + tooltipRect.height > windowHeight - 5) {
+        top = mouseY - tooltipRect.height - offset;
+    }
+    
+    // Ensure tooltip doesn't go off the top edge
+    top = Math.max(5, top);
+    
+    // Apply positioning with scroll offset
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+    tooltip.style.position = 'fixed'; // Use fixed positioning relative to viewport
+}
+
 function handleCardClick(card) {
     const checkbox = card.querySelector('input[type="checkbox"]');
     checkbox.checked = !checkbox.checked
